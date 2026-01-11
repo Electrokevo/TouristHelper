@@ -11,12 +11,74 @@
 
 // Only include if you need specific CUDA API calls, otherwise NVBLAS handles it
 #include <cuda_runtime.h>
-
+#include <torch/torch.h>
 using namespace mlpack;
 using namespace mlpack::tree;
 using namespace mlpack::ann;
 using namespace std;
 using namespace arma;
+
+// ================ agregado inicio para uso del gpu ===================
+struct ContextualLSTMImpl : torch::nn::Module {
+  // Embeddings
+  torch::nn::Embedding cantonEmb{nullptr};
+  torch::nn::Embedding serviceEmb{nullptr};
+
+  // LSTM
+  torch::nn::LSTM lstm{nullptr};
+
+  // Clasificador
+  torch::nn::Linear fc{nullptr};
+
+  int64_t hiddenSize;
+
+  ContextualLSTMImpl(int64_t numCantones,
+                     int64_t numServicios,
+                     int64_t embCantonDim = 16,
+                     int64_t embServiceDim = 32,
+                     int64_t hidden = 64)
+      : hiddenSize(hidden)
+  {
+    cantonEmb = register_module("cantonEmb", torch::nn::Embedding(numCantones, embCantonDim));
+    serviceEmb = register_module("serviceEmb", torch::nn::Embedding(numServicios, embServiceDim));
+
+    // input_size = embCantonDim + embServiceDim
+    lstm = register_module("lstm", torch::nn::LSTM(
+        torch::nn::LSTMOptions(embCantonDim + embServiceDim, hidden)
+            .batch_first(true)
+    ));
+
+    fc = register_module("fc", torch::nn::Linear(hidden, numServicios));
+  }
+
+  // cantonIds: [B] (int64)
+  // serviceSeq: [B, T] (int64)  (servicio_actual en secuencia)
+  // return logits: [B, numServicios]
+  torch::Tensor forward(torch::Tensor cantonIds, torch::Tensor serviceSeq) {
+    // Emb canton: [B, embC]
+    auto cEmb = cantonEmb(cantonIds);
+
+    // Emb servicios: [B, T, embS]
+    auto sEmb = serviceEmb(serviceSeq);
+
+    // Repetir canton embedding a lo largo del tiempo: [B, T, embC]
+    auto cEmbRep = cEmb.unsqueeze(1).repeat({1, sEmb.size(1), 1});
+
+    // Concatenar: [B, T, embC+embS]
+    auto x = torch::cat({cEmbRep, sEmb}, /*dim=*/2);
+
+    // LSTM output: out [B, T, hidden]
+    auto lstmOut = std::get<0>(lstm(x));
+
+    // Tomar el último timestep: [B, hidden]
+    auto last = lstmOut.select(1, lstmOut.size(1) - 1);
+
+    // Logits: [B, numServicios]
+    return fc(last);
+  }
+};
+TORCH_MODULE(ContextualLSTM);
+// ================ agregado fin para uso del gpu ===================
 
 int main() {
   // --- 0. GPU CHECK ---
@@ -33,9 +95,19 @@ int main() {
          << endl;
   }
 
+  // ================ agregado inicio para uso ver si uso del gpu ===================
+  torch::Device device(torch::kCPU);
+  if (torch::cuda::is_available()) {
+    device = torch::Device(torch::kCUDA);
+    std::cout << "LibTorch CUDA disponible. Usando GPU.\n";
+  } else {
+    std::cout << "CUDA NO disponible en LibTorch. Usando CPU.\n";
+  }
+  // ================ agregado fin para uso ver si uso del gpu ===================
+
   // --- 1. DATA LOADING ---
   cout << "\n--- 1. Data Loading ---" << endl;
-  string filename = "../join_2025_01.csv";
+  string filename = "join_2025_01.csv";
   ifstream file(filename);
   if (!file.is_open()) {
     cerr << "Error opening " << filename << endl;

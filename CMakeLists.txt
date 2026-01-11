@@ -1,4 +1,8 @@
 cmake_minimum_required(VERSION 3.16)
+
+# Recomendado para RTX 2060 (Compute Capability 7.5)
+set(CMAKE_CUDA_ARCHITECTURES 75)
+
 if(NOT DEFINED CMAKE_CUDA_COMPILER)
   set(CMAKE_CUDA_COMPILER "/opt/cuda/bin/nvcc")
 endif()
@@ -6,6 +10,7 @@ endif()
 if(NOT DEFINED CUDAToolkit_ROOT)
   set(CUDAToolkit_ROOT "/opt/cuda")
 endif()
+
 # Add CUDA to languages so CMake looks for nvcc immediately
 project(TouristHelper LANGUAGES CXX CUDA)
 
@@ -29,7 +34,13 @@ find_package(OpenMP)
 # On Arch, the 'libtorch' or 'libtorch-cxx11-abi' AUR packages install to
 # /opt/libtorch. We append this to the search path so find_package works
 # automatically.
-list(APPEND CMAKE_PREFIX_PATH "/opt/libtorch")
+
+# REEMPLAZARLO. reemplazar entre entas lists
+# list(APPEND CMAKE_PREFIX_PATH "/opt/libtorch")
+# reemplazo con la linea de arriba para ejecutarlo con la gpu
+list(APPEND CMAKE_PREFIX_PATH "$ENV{HOME}/libs/libtorch")
+
+
 find_package(Torch REQUIRED)
 
 # --- 3. Build Configuration ---
