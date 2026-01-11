@@ -1,0 +1,9 @@
+# ninja log v6
+2	1795	1768104675293487908	CMakeFiles/TouristHelper.dir/Encoders.cpp.o	a098aa864b98e003
+2	4684	1768104675292379323	CMakeFiles/TouristHelper.dir/Helpers.cpp.o	ad17aa69a3711445
+1	23754	1768104675291379349	CMakeFiles/TouristHelper.dir/main.cpp.o	2d397418de3f4935
+23757	24223	1768104699047755742	TouristHelper	68a9491cc58cf068
+3	1199	1768105793874089817	CMakeFiles/TouristHelper.dir/Encoders.cpp.o	a098aa864b98e003
+3	5479	1768105793873858707	CMakeFiles/TouristHelper.dir/Helpers.cpp.o	ad17aa69a3711445
+3	23647	1768105793872199827	CMakeFiles/TouristHelper.dir/main.cpp.o	2d397418de3f4935
+23647	24116	1768105817516809479	TouristHelper	68a9491cc58cf068

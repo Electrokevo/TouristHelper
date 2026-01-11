@@ -1,186 +1,265 @@
-#include "Helpers.cpp"
-#include "LabelEncoder.cpp"
+#include "Encoders.h"
+#include "Helpers.h"
 #include <armadillo>
 #include <chrono>
 #include <fstream>
 #include <iostream>
+#include <map>
 #include <mlpack.hpp>
 #include <sstream>
-#include <string>
 #include <vector>
 
-// Namespaces
+// Only include if you need specific CUDA API calls, otherwise NVBLAS handles it
+#include <cuda_runtime.h>
+
 using namespace mlpack;
+using namespace mlpack::tree;
+using namespace mlpack::ann;
+using namespace std;
+using namespace arma;
 
-int main()
-{
-    // 1. DATA LOADING
-    std::cout << "--- 1. Data Loading ---" << std::endl;
-    std::string filename = "../small_data.csv";
-    std::ifstream file(filename);
-    if (!file.is_open())
-    {
-        std::cerr << "Error opening " << filename << std::endl;
-        return -1;
+int main() {
+  // --- 0. GPU CHECK ---
+  // We use standard CUDA API to check, avoiding heavy Torch dependency just for
+  // a print
+  int deviceCount = 0;
+  cudaError_t error_id = cudaGetDeviceCount(&deviceCount);
+  if (error_id == cudaSuccess && deviceCount > 0) {
+    cout << "CUDA Device Detected! (" << deviceCount << " GPU(s) found)"
+         << endl;
+    cout << "NVBLAS should automatically offload matrix ops." << endl;
+  } else {
+    cout << "No CUDA Device found or CUDA driver error. Running on CPU."
+         << endl;
+  }
+
+  // --- 1. DATA LOADING ---
+  cout << "\n--- 1. Data Loading ---" << endl;
+  string filename = "../join_2025_01.csv";
+  ifstream file(filename);
+  if (!file.is_open()) {
+    cerr << "Error opening " << filename << endl;
+    return -1;
+  }
+
+  // Encoders
+  LabelEncoder encProv, encParr, encSubtipo, encServ;
+  HierarchicalCantonEncoder encCanton;
+
+  // Feature Headers
+  vector<string> featureNames;
+  string header, feature;
+  getline(file, header);
+  stringstream headerStream(header);
+  int h_idx = 0;
+  while (getline(headerStream, feature, ',')) {
+    if (h_idx++ == 5)
+      continue; // Skip Target column in features list
+    featureNames.push_back(feature);
+  }
+
+  int n_feats = featureNames.size();
+
+  // Storage
+  map<int, vector<double>> canton_histories; // For Contextual LSTM
+  vector<vector<double>> features(n_feats);  // For RF
+  vector<double> targets;
+
+  string line, cell;
+  int validRows = 0;
+
+  cout << "Parsing CSV..." << endl;
+  while (getline(file, line)) {
+    stringstream lineStream(line);
+    vector<string> row;
+    while (getline(lineStream, cell, ','))
+      row.push_back(cell);
+
+    if (row.size() < n_feats)
+      continue;
+
+    // Target: Service
+    double targetVal = encServ.encode(row[5]);
+    if (targetVal < 0)
+      continue;
+
+    targets.push_back(targetVal);
+
+    // Feature 0: Date
+    features[0].push_back(parseDate(row[0]));
+
+    // Feature 1: Prov (Hierarchical Base)
+    int provId = (int)encProv.encode(row[1]);
+    features[1].push_back((double)provId);
+
+    // Feature 2: Canton (Hierarchical Child)
+    int cantonId = (int)encCanton.encode(provId, row[2]);
+    features[2].push_back((double)cantonId);
+
+    // Feature 3: Numeric
+    features[3].push_back(parseNumeric(row[3]));
+
+    // Feature 4 & 5: Categorical
+    features[4].push_back(encParr.encode(row[4]));
+    features[5].push_back(encSubtipo.encode(row[6]));
+
+    // Rest: Demographics
+    for (int i = 0; i < n_feats - 6; ++i) {
+      int colIndex = 7 + i;
+      if (colIndex < row.size())
+        features[6 + i].push_back(parseNumeric(row[colIndex]));
+      else
+        features[6 + i].push_back(0.0);
     }
 
-    std::vector<std::vector<double>> features(19);
-    std::vector<double> targets;
-    LabelEncoder encProv, encCanton, encCodParr, encParr, encSubtipo, encServ;
+    // Store history for LSTM (Context: Canton)
+    canton_histories[cantonId].push_back(targetVal);
 
-    std::string line, cell;
-    getline(file, line);
+    validRows++;
+  }
 
-    int validRows = 0;
-    while (getline(file, line))
-    {
-        std::stringstream lineStream(line);
-        std::vector<std::string> row;
-        while (getline(lineStream, cell, ';'))
-            row.push_back(cell);
+  if (validRows == 0) {
+    cerr << "No valid data loaded." << endl;
+    return -1;
+  }
+  cout << "Data Loaded: " << validRows << " samples." << endl;
 
-        if (row.size() < 7)
-            continue;
+  // Build Matrix
+  mat dataMat(n_feats, validRows);
+  Row<size_t> labelMat(validRows);
 
-        double targetVal = encServ.encode(row[5]);
-        if (targetVal < 0)
-            continue;
-
-        features[0].push_back(parseDate(row[0]));
-        features[1].push_back(encProv.encode(row[1]));
-        features[2].push_back(encCanton.encode(row[2]));
-        features[3].push_back(encCodParr.encode(row[3]));
-        features[4].push_back(encParr.encode(row[4]));
-        features[5].push_back(encSubtipo.encode(row[6]));
-        targets.push_back(targetVal);
-
-        for (int i = 0; i < 13; ++i)
-        {
-            int colIndex = 7 + i;
-            if (colIndex < row.size())
-                features[6 + i].push_back(parseNumeric(row[colIndex]));
-            else
-                features[6 + i].push_back(0.0);
-        }
-        validRows++;
+  for (size_t i = 0; i < validRows; ++i) {
+    for (size_t f = 0; f < n_feats; ++f) {
+      dataMat(f, i) = features[f][i];
     }
+    labelMat(i) = (size_t)targets[i];
+  }
 
-    if (validRows == 0)
-        return -1;
-    std::cout << "Data Loaded: " << validRows << " samples." << std::endl;
-    arma::mat dataMat(19, validRows);
-    arma::Row<size_t> labelMat(validRows);
+  // Check Orthogonality
+  CheckOrthogonality(dataMat, featureNames);
 
-    for (size_t i = 0; i < validRows; ++i)
-    {
-        for (size_t f = 0; f < 19; ++f)
-            dataMat(f, i) = features[f][i];
-        labelMat(i) = (size_t)targets[i];
+  // --- 2. RANDOM FOREST ---
+  cout << "\n--- 2. Random Forest (Classification) ---" << endl;
+
+  mat trainData, testData;
+  Row<size_t> trainLabels, testLabels;
+  data::Split(dataMat, labelMat, trainData, testData, trainLabels, testLabels,
+              0.2);
+
+  RandomForest<GiniGain, RandomDimensionSelect> rf;
+
+  cout << "Training Random Forest..." << endl;
+  auto start = chrono::high_resolution_clock::now();
+
+  // 200 Trees, MinLeaf 1
+  rf.Train(trainData, trainLabels, encServ.numClasses(), 200, 1);
+
+  auto stop = chrono::high_resolution_clock::now();
+  cout << "RF Training finished in "
+       << chrono::duration_cast<chrono::milliseconds>(stop - start).count()
+       << " ms." << endl;
+
+  Row<size_t> predictions;
+  rf.Classify(testData, predictions);
+  size_t correct = 0;
+  for (size_t i = 0; i < testLabels.n_elem; ++i) {
+    if (predictions[i] == testLabels[i])
+      correct++;
+  }
+  cout << "RF Accuracy: " << (double)correct / testLabels.n_elem * 100.0 << "%"
+       << endl;
+
+  // --- 3. CONTEXTUAL LSTM ---
+  cout << "\n--- 3. Contextual LSTM (Predict Next Service in Canton) ---"
+       << endl;
+
+  // Prepare Cubes
+  size_t totalLstmSamples = 0;
+  for (auto const &[cantonId, history] : canton_histories) {
+    if (history.size() > 1)
+      totalLstmSamples += (history.size() - 1);
+  }
+
+  double maxServ = (double)encServ.numClasses();
+  double maxCant = 25000.0; // Approx max for hierarchical
+
+  cube inputCube(2, totalLstmSamples, 1);
+  cube targetCube(1, totalLstmSamples, 1);
+
+  size_t idx = 0;
+  for (auto const &[cantonId, history] : canton_histories) {
+    if (history.size() < 2)
+      continue;
+
+    for (size_t i = 0; i < history.size() - 1; ++i) {
+      // Feature 0: Current Service
+      inputCube(0, idx, 0) = history[i] / maxServ;
+      // Feature 1: Context (Canton)
+      inputCube(1, idx, 0) = (double)cantonId / maxCant;
+
+      // Target
+      targetCube(0, idx, 0) = history[i + 1] / maxServ;
+      idx++;
     }
-    // Define names for your 19 features so the output is readable
-    std::vector<std::string> featureNames = {
-        "Fecha", "Provincia", "Canton", "Cod_Parroquia", "Parroquia", "Subtipo", // 0-5
-        "p02", "p03", "empleo", "desempleo", "ingpc", "nnivins",
-        "vi12", "vi01", "vi05b", "vi03b", "vi141", "c01", "c09" // 6-18
-    };
+  }
 
-    // CALL THE NEW FUNCTION
-    CheckOrthogonality(dataMat, featureNames);
+  cout << "LSTM Training Samples: " << totalLstmSamples << endl;
 
-    // 2. RANDOM FOREST
-    std::cout << "\n--- 2. Random Forest (Classification) ---" << std::endl;
+  // Define Network
+  RNN<MeanSquaredError> rnn;
+  rnn.Add<Linear>(32); // Increased hidden size for GPU
+  rnn.Add<LSTM>(32);
+  rnn.Add<Linear>(1);
 
-    arma::mat trainData, testData;
-    arma::Row<size_t> trainLabels, testLabels;
-    data::Split(dataMat, labelMat, trainData, testData, trainLabels, testLabels,
-                0.2);
+  // Optimizer (Corrected for Epochs)
+  const size_t BATCH_SIZE = 64; // Larger batch for GPU efficiency
+  const size_t EPOCHS = 50;
+  size_t iterPerEpoch = totalLstmSamples / BATCH_SIZE;
+  if (iterPerEpoch == 0)
+    iterPerEpoch = 1; // Safety
+  size_t totalIterations = iterPerEpoch * EPOCHS;
 
-    RandomForest<GiniGain, RandomDimensionSelect> rf;
+  cout << "Total Iterations: " << totalIterations << " (" << EPOCHS
+       << " Epochs)" << endl;
 
-    // Using 100 trees and leaf size 20 for large dataset
-    std::cout << "Training Random Forest..." << std::endl;
-    auto start = std::chrono::high_resolution_clock::now();
+  ens::Adam optimizer(0.005, BATCH_SIZE, 0.9, 0.999, 1e-8, totalIterations,
+                      1e-15);
 
-    rf.Train(trainData, trainLabels, encServ.numClasses(), 500, 1);
+  cout << "Training LSTM..." << endl;
+  rnn.Train(inputCube, targetCube, optimizer, ens::PrintLoss(),
+            ens::ProgressBar());
 
-    auto stop = std::chrono::high_resolution_clock::now();
-    auto duration =
-        std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    std::cout << "RF Training finished in " << duration.count() << " ms."
-        << std::endl;
+  // --- 4. PREDICTION DEMO ---
+  cout << "\n--- Prediction Demo ---" << endl;
+  // Context: "Seguridad Ciudadana" (ID Lookup) in "Cuenca" (Hierarchical
+  // Lookup)
 
-    arma::Row<size_t> predictions;
-    rf.Classify(testData, predictions);
-    size_t correct = 0;
-    for (size_t i = 0; i < testLabels.n_elem; ++i)
-        if (predictions[i] == testLabels[i])
-            correct++;
-    std::cout << "RF Accuracy: " << (double)correct / testLabels.n_elem * 100.0
-        << "%" << std::endl;
+  // For demo, we just pick the very last event from our data to be safe
+  // In a real app, you would use encCanton.encode(provID, "Cuenca") to find the
+  // ID.
 
-    // LSTM (Sequence Prediction)
-    std::cout << "\n--- 3. LSTM (Sequence Prediction) ---" << std::endl;
+  double lastCantonID = 1000.0; // Hardcoded example for Cuenca
+  string demoService = "Seguridad Ciudadana";
+  double lastServiceID = encServ.encode(demoService);
+  if (lastServiceID < 0)
+    lastServiceID = 0; // Fallback
 
-    // Prepare Data
-    arma::mat seqData = arma::conv_to<arma::mat>::from(labelMat);
-    double maxVal = (double)(encServ.numClasses() > 0 ? encServ.numClasses() : 1);
-    seqData = seqData / maxVal;
+  cube query(2, 1, 1);
+  query(0, 0, 0) = lastServiceID / maxServ;
+  query(1, 0, 0) = lastCantonID / maxCant;
 
-    // Get input/target matrices (2D)
-    arma::mat inputMat = seqData.submat(0, 0, 0, seqData.n_cols - 2);
-    arma::mat targetMat = seqData.submat(0, 1, 0, seqData.n_cols - 1);
+  cube predCube;
+  rnn.Predict(query, predCube);
 
-    // Dimensions: [Features=1, Samples=N, TimeSteps=1]
-    arma::cube inputCube(1, inputMat.n_cols, 1);
-    arma::cube targetCube(1, targetMat.n_cols, 1);
+  int nextID = (int)(predCube(0, 0, 0) * maxServ);
+  if (nextID < 0)
+    nextID = 0;
+  if (nextID >= encServ.numClasses())
+    nextID = encServ.numClasses() - 1;
 
-    // Copy data into the first slice
-    inputCube.slice(0) = inputMat;
-    targetCube.slice(0) = targetMat;
+  cout << "Context: " << demoService << " (ID " << lastServiceID
+       << ") in Canton " << lastCantonID << endl;
+  cout << "Predicted Next Service: " << encServ.decode(nextID) << endl;
 
-    // Define Network
-    RNN<MeanSquaredError> rnn;
-    rnn.Add<Linear>(10); // Input -> Hidden Linear
-    rnn.Add<LSTM>(10); // LSTM Layer
-    rnn.Add<Linear>(1); // Output Layer
-
-    // Optimizer
-    ens::Adam optimizer(0.01, 32, 0.9, 0.999, 1e-8, 50, 1e-5);
-
-    std::cout << "Training LSTM..." << std::endl;
-
-    // Train using Cubes
-    rnn.Train(inputCube, targetCube, optimizer, ens::PrintLoss(),
-              ens::ProgressBar());
-
-    std::cout << "\nLSTM Training Complete." << std::endl;
-
-    arma::mat lastEventMat(1, 1);
-    lastEventMat(0, 0) = seqData(0, seqData.n_cols - 1);
-
-    // Convert single sample to Cube for prediction
-    arma::cube lastEventCube(1, 1, 1);
-    lastEventCube.slice(0) = lastEventMat;
-
-    arma::cube nextPredCube;
-    rnn.Predict(lastEventCube, nextPredCube);
-
-    // Extract result
-    double predVal = nextPredCube(0, 0, 0);
-    int nextClassID = (int)(predVal * maxVal);
-
-    // Clamp ID to valid range (safety check)
-    if (nextClassID < 0)
-        nextClassID = 0;
-    if (nextClassID >= encServ.numClasses())
-        nextClassID = encServ.numClasses() - 1;
-
-    // --- FINAL OUTPUT ---
-    std::cout << "Previous Service ID: " << (int)(lastEventMat(0, 0) * maxVal)
-        << std::endl;
-    std::cout << "Predicted Next Service ID: " << nextClassID << std::endl;
-    std::cout << "PREDICTED SERVICE NAME: " << encServ.decode(nextClassID)
-        << std::endl;
-
-    return 0;
+  return 0;
 }
