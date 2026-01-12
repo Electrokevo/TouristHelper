@@ -26653,3 +26653,4231 @@ events:
       stdout: |
       exitCode: 255
 ...
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:796 (find_path)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "path"
+    variable: "CUDA_TOOLKIT_INCLUDE"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "device_functions.h"
+    candidate_directories:
+      - "/opt/cuda/include/"
+      - "/opt/cuda/"
+    found: "/opt/cuda/include/"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/scripts"
+        - "$~./.gem/bin/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_INCLUDE_PATH:
+        - "/usr/include/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:851 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_CUDART_LIBRARY"
+    description: "\"cudart\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cudart"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcudart.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/scripts"
+        - "$~./.gem/bin/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:853 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cudart_static_LIBRARY"
+    description: "static CUDA runtime library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cudart_static"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcudart_static.a"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/scripts"
+        - "$~./.gem/bin/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:871 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cudadevrt_LIBRARY"
+    description: "\"cudadevrt\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cudadevrt"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcudadevrt.a"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/scripts"
+        - "$~./.gem/bin/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:908 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cupti_LIBRARY"
+    description: "\"cupti\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cupti"
+    candidate_directories:
+      - "/opt/cuda/extras/CUPTI/lib/x64/"
+      - "/opt/cuda/extras/CUPTI/lib64/"
+      - "/opt/cuda/extras/CUPTI/libx64/"
+      - "/opt/cuda/extras/CUPTI/lib/Win32/"
+      - "/opt/cuda/extras/CUPTI/lib/"
+      - "/opt/cuda/extras/CUPTI/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/extras/CUPTI/lib/x64/"
+      - "/opt/cuda/extras/CUPTI/lib64/"
+      - "/opt/cuda/extras/CUPTI/libx64/"
+      - "/opt/cuda/extras/CUPTI/lib/Win32/"
+      - "/opt/cuda/extras/CUPTI/lib/"
+      - "/opt/cuda/extras/CUPTI/libWin32/"
+      - "/opt/cuda/"
+    found: false
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/scripts"
+        - "$~./.gem/bin/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:938 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_CUDA_LIBRARY"
+    description: "\"cuda\" library (older versions only)."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cuda"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    found: false
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/scripts"
+        - "$~./.gem/bin/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:833 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:938 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_CUDA_LIBRARY"
+    description: "\"cuda\" library (older versions only)."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cuda"
+    candidate_directories:
+      - "/home/kevin/libs/libtorch/lib/"
+      - "/home/kevin/libs/libtorch/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/kevin/.rvm/bin/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/scripts/"
+      - "/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/$~./.gem/bin/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/"
+      - "/usr/local/lib/"
+      - "/usr/local/"
+      - "/usr/lib/"
+      - "/usr/"
+      - "/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/"
+      - "/usr/X11R6/lib/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/lib/"
+      - "/usr/pkg/"
+      - "/opt/lib/"
+      - "/opt/"
+      - "/usr/lib/X11/"
+      - "/usr/lib/nvidia-current/"
+    searched_directories:
+      - "/home/kevin/libs/libtorch/lib/"
+      - "/home/kevin/libs/libtorch/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/kevin/.rvm/bin/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/scripts/"
+      - "/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/$~./.gem/bin/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/"
+      - "/usr/local/lib/"
+      - "/usr/local/"
+    found: "/usr/lib/libcuda.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/scripts"
+        - "$~./.gem/bin/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:956 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cufft_LIBRARY"
+    description: "\"cufft\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cufft"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcufft.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/scripts"
+        - "$~./.gem/bin/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:957 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cublas_LIBRARY"
+    description: "\"cublas\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cublas"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcublas.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/scripts"
+        - "$~./.gem/bin/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:958 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cublasLt_LIBRARY"
+    description: "\"cublasLt\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cublasLt"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcublasLt.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/scripts"
+        - "$~./.gem/bin/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:960 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cusparse_LIBRARY"
+    description: "\"cusparse\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cusparse"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcusparse.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/scripts"
+        - "$~./.gem/bin/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:961 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_curand_LIBRARY"
+    description: "\"curand\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "curand"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcurand.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/scripts"
+        - "$~./.gem/bin/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:968 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_nppc_LIBRARY"
+    description: "\"nppc\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "nppc"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libnppc.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/scripts"
+        - "$~./.gem/bin/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:979 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_npps_LIBRARY"
+    description: "\"npps\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "npps"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libnpps.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/scripts"
+        - "$~./.gem/bin/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:982 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cusolver_LIBRARY"
+    description: "\"cusolver\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cusolver"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcusolver.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/scripts"
+        - "$~./.gem/bin/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/FindCUDAToolkit.cmake:869 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/FindCUDAToolkit.cmake:1035 (_CUDAToolkit_find_and_add_import_lib)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:59 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cupti_LIBRARY"
+    description: "\"cupti\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cupti"
+    candidate_directories:
+      - "/opt/cuda/lib/nvidia/current/"
+      - "/opt/cuda/lib/lib64/"
+      - "/opt/cuda/lib/lib/x64/"
+      - "/opt/cuda/lib/lib/"
+      - "/opt/cuda/lib/../extras/CUPTI/lib64/"
+      - "/opt/cuda/lib/../extras/CUPTI/lib/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/nvidia/current/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/../extras/CUPTI/lib64/"
+      - "/opt/cuda/../extras/CUPTI/lib/"
+      - "/opt/cuda/"
+      - "/home/kevin/libs/libtorch/lib/nvidia/current/"
+      - "/home/kevin/libs/libtorch/lib/lib64/"
+      - "/home/kevin/libs/libtorch/lib/lib/x64/"
+      - "/home/kevin/libs/libtorch/lib/lib/"
+      - "/home/kevin/libs/libtorch/lib/../extras/CUPTI/lib64/"
+      - "/home/kevin/libs/libtorch/lib/../extras/CUPTI/lib/"
+      - "/home/kevin/libs/libtorch/lib/"
+      - "/home/kevin/libs/libtorch/nvidia/current/"
+      - "/home/kevin/libs/libtorch/lib64/"
+      - "/home/kevin/libs/libtorch/lib/x64/"
+      - "/home/kevin/libs/libtorch/lib/"
+      - "/home/kevin/libs/libtorch/../extras/CUPTI/lib64/"
+      - "/home/kevin/libs/libtorch/../extras/CUPTI/lib/"
+      - "/home/kevin/libs/libtorch/"
+      - "/opt/cuda/lib/nvidia/current/"
+      - "/opt/cuda/lib/lib64/"
+      - "/opt/cuda/lib/lib/x64/"
+      - "/opt/cuda/lib/lib/"
+      - "/opt/cuda/lib/../extras/CUPTI/lib64/"
+      - "/opt/cuda/lib/../extras/CUPTI/lib/"
+      - "/opt/cuda/lib/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/nvidia/current/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/lib64/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/lib/x64/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/lib/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/../extras/CUPTI/lib64/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/../extras/CUPTI/lib/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/nvidia/current/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/lib64/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/lib/x64/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/lib/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/../extras/CUPTI/lib64/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/../extras/CUPTI/lib/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/nvidia/current/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/lib64/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/lib/x64/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/lib/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/../extras/CUPTI/lib64/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/../extras/CUPTI/lib/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/"
+      - "/usr/local/sbin/nvidia/current/"
+      - "/usr/local/sbin/lib64/"
+      - "/usr/local/sbin/lib/x64/"
+      - "/usr/local/sbin/lib/"
+      - "/usr/local/sbin/../extras/CUPTI/lib64/"
+      - "/usr/local/sbin/../extras/CUPTI/lib/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/nvidia/current/"
+      - "/usr/local/bin/lib64/"
+      - "/usr/local/bin/lib/x64/"
+      - "/usr/local/bin/lib/"
+      - "/usr/local/bin/../extras/CUPTI/lib64/"
+      - "/usr/local/bin/../extras/CUPTI/lib/"
+      - "/usr/local/bin/"
+      - "/usr/bin/nvidia/current/"
+      - "/usr/bin/lib64/"
+      - "/usr/bin/lib/x64/"
+      - "/usr/bin/lib/"
+      - "/usr/bin/../extras/CUPTI/lib64/"
+      - "/usr/bin/../extras/CUPTI/lib/"
+      - "/usr/bin/"
+      - "/usr/lib/jvm/default/bin/nvidia/current/"
+      - "/usr/lib/jvm/default/bin/lib64/"
+      - "/usr/lib/jvm/default/bin/lib/x64/"
+      - "/usr/lib/jvm/default/bin/lib/"
+      - "/usr/lib/jvm/default/bin/../extras/CUPTI/lib64/"
+      - "/usr/lib/jvm/default/bin/../extras/CUPTI/lib/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/nvidia/current/"
+      - "/usr/bin/site_perl/lib64/"
+      - "/usr/bin/site_perl/lib/x64/"
+      - "/usr/bin/site_perl/lib/"
+      - "/usr/bin/site_perl/../extras/CUPTI/lib64/"
+      - "/usr/bin/site_perl/../extras/CUPTI/lib/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/nvidia/current/"
+      - "/usr/bin/vendor_perl/lib64/"
+      - "/usr/bin/vendor_perl/lib/x64/"
+      - "/usr/bin/vendor_perl/lib/"
+      - "/usr/bin/vendor_perl/../extras/CUPTI/lib64/"
+      - "/usr/bin/vendor_perl/../extras/CUPTI/lib/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/nvidia/current/"
+      - "/usr/bin/core_perl/lib64/"
+      - "/usr/bin/core_perl/lib/x64/"
+      - "/usr/bin/core_perl/lib/"
+      - "/usr/bin/core_perl/../extras/CUPTI/lib64/"
+      - "/usr/bin/core_perl/../extras/CUPTI/lib/"
+      - "/usr/bin/core_perl/"
+      - "/home/kevin/.rvm/bin/nvidia/current/"
+      - "/home/kevin/.rvm/bin/lib64/"
+      - "/home/kevin/.rvm/bin/lib/x64/"
+      - "/home/kevin/.rvm/bin/lib/"
+      - "/home/kevin/.rvm/bin/../extras/CUPTI/lib64/"
+      - "/home/kevin/.rvm/bin/../extras/CUPTI/lib/"
+      - "/home/kevin/.rvm/bin/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/scripts/nvidia/current/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/scripts/lib64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/scripts/lib/x64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/scripts/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/scripts/../extras/CUPTI/lib64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/scripts/../extras/CUPTI/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/scripts/"
+      - "/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/$~./.gem/bin/nvidia/current/"
+      - "/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/$~./.gem/bin/lib64/"
+      - "/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/$~./.gem/bin/lib/x64/"
+      - "/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/$~./.gem/bin/lib/"
+      - "/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/$~./.gem/bin/../extras/CUPTI/lib64/"
+      - "/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/$~./.gem/bin/../extras/CUPTI/lib/"
+      - "/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/$~./.gem/bin/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/nvidia/current/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/lib64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/lib/x64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/../extras/CUPTI/lib64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/../extras/CUPTI/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/"
+      - "/usr/local/lib/nvidia/current/"
+      - "/usr/local/lib/lib64/"
+      - "/usr/local/lib/lib/x64/"
+      - "/usr/local/lib/lib/"
+      - "/usr/local/lib/../extras/CUPTI/lib64/"
+      - "/usr/local/lib/../extras/CUPTI/lib/"
+      - "/usr/local/lib/"
+      - "/usr/local/nvidia/current/"
+      - "/usr/local/lib64/"
+      - "/usr/local/lib/x64/"
+      - "/usr/local/lib/"
+      - "/usr/local/../extras/CUPTI/lib64/"
+      - "/usr/local/../extras/CUPTI/lib/"
+      - "/usr/local/"
+      - "/usr/lib/nvidia/current/"
+      - "/usr/lib/lib64/"
+      - "/usr/lib/lib/x64/"
+      - "/usr/lib/lib/"
+      - "/usr/lib/../extras/CUPTI/lib64/"
+      - "/usr/lib/../extras/CUPTI/lib/"
+      - "/usr/lib/"
+      - "/usr/nvidia/current/"
+      - "/usr/lib64/"
+      - "/usr/lib/x64/"
+      - "/usr/lib/"
+      - "/usr/../extras/CUPTI/lib64/"
+      - "/usr/../extras/CUPTI/lib/"
+      - "/usr/"
+      - "/lib/nvidia/current/"
+      - "/lib/lib64/"
+      - "/lib/lib/x64/"
+      - "/lib/lib/"
+      - "/lib/../extras/CUPTI/lib64/"
+      - "/lib/../extras/CUPTI/lib/"
+      - "/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/nvidia/current/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/lib64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/lib/x64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/../extras/CUPTI/lib64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/../extras/CUPTI/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/nvidia/current/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/x64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/../extras/CUPTI/lib64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/../extras/CUPTI/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/"
+      - "/usr/X11R6/lib/nvidia/current/"
+      - "/usr/X11R6/lib/lib64/"
+      - "/usr/X11R6/lib/lib/x64/"
+      - "/usr/X11R6/lib/lib/"
+      - "/usr/X11R6/lib/../extras/CUPTI/lib64/"
+      - "/usr/X11R6/lib/../extras/CUPTI/lib/"
+      - "/usr/X11R6/lib/"
+      - "/usr/X11R6/nvidia/current/"
+      - "/usr/X11R6/lib64/"
+      - "/usr/X11R6/lib/x64/"
+      - "/usr/X11R6/lib/"
+      - "/usr/X11R6/../extras/CUPTI/lib64/"
+      - "/usr/X11R6/../extras/CUPTI/lib/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/lib/nvidia/current/"
+      - "/usr/pkg/lib/lib64/"
+      - "/usr/pkg/lib/lib/x64/"
+      - "/usr/pkg/lib/lib/"
+      - "/usr/pkg/lib/../extras/CUPTI/lib64/"
+      - "/usr/pkg/lib/../extras/CUPTI/lib/"
+      - "/usr/pkg/lib/"
+      - "/usr/pkg/nvidia/current/"
+      - "/usr/pkg/lib64/"
+      - "/usr/pkg/lib/x64/"
+      - "/usr/pkg/lib/"
+      - "/usr/pkg/../extras/CUPTI/lib64/"
+      - "/usr/pkg/../extras/CUPTI/lib/"
+      - "/usr/pkg/"
+      - "/opt/lib/nvidia/current/"
+      - "/opt/lib/lib64/"
+      - "/opt/lib/lib/x64/"
+      - "/opt/lib/lib/"
+      - "/opt/lib/../extras/CUPTI/lib64/"
+      - "/opt/lib/../extras/CUPTI/lib/"
+      - "/opt/lib/"
+      - "/opt/nvidia/current/"
+      - "/opt/lib64/"
+      - "/opt/lib/x64/"
+      - "/opt/lib/"
+      - "/opt/../extras/CUPTI/lib64/"
+      - "/opt/../extras/CUPTI/lib/"
+      - "/opt/"
+      - "/usr/lib/X11/nvidia/current/"
+      - "/usr/lib/X11/lib64/"
+      - "/usr/lib/X11/lib/x64/"
+      - "/usr/lib/X11/lib/"
+      - "/usr/lib/X11/../extras/CUPTI/lib64/"
+      - "/usr/lib/X11/../extras/CUPTI/lib/"
+      - "/usr/lib/X11/"
+    searched_directories:
+      - "/opt/cuda/lib/nvidia/current/"
+      - "/opt/cuda/lib/lib64/"
+      - "/opt/cuda/lib/lib/x64/"
+      - "/opt/cuda/lib/lib/"
+      - "/opt/cuda/lib/../extras/CUPTI/lib64/"
+      - "/opt/cuda/lib/../extras/CUPTI/lib/"
+    found: "/opt/cuda/lib/libcupti.so"
+    search_context:
+      package_stack:
+        -
+          package_paths:
+            - "/opt/cuda"
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/scripts"
+        - "$~./.gem/bin/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:99 (try_run)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    directories:
+      source: "/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/CMakeFiles/CMakeTmp"
+      binary: "/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CUDA_ARCHITECTURES: "75"
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/opt/libtorch/share/cmake/Caffe2;/opt/libtorch/share/cmake/Caffe2/public/../Modules_CUDA_fix"
+    buildResult:
+      variable: "compile_result"
+      cached: true
+      stdout: |
+        Change Dir: '/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/ninja -v cmTC_974dd
+        [1/2] /usr/bin/c++  -I/opt/cuda/include -std=gnu++20 -fdiagnostics-color=always -o CMakeFiles/cmTC_974dd.dir/detect_cuda_version.cc.o -c /home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/detect_cuda_version.cc
+        [2/2] : && /usr/bin/c++   CMakeFiles/cmTC_974dd.dir/detect_cuda_version.cc.o -o cmTC_974dd  -Wl,-rpath,/opt/cuda/lib64  /opt/cuda/lib64/libcudart.so && :
+        
+      exitCode: 0
+    runResult:
+      variable: "run_result"
+      cached: true
+      stdout: |
+        13.1
+      exitCode: 0
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA/select_compute_arch.cmake:128 (try_run)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA/select_compute_arch.cmake:188 (CUDA_DETECT_INSTALLED_GPUS)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/utils.cmake:331 (cuda_select_nvcc_arch_flags)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:320 (torch_cuda_get_nvcc_gencode_flag)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    directories:
+      source: "/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/CMakeFiles/CMakeTmp"
+      binary: "/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CUDA_ARCHITECTURES: "75"
+      CMAKE_CUDA_FLAGS: ""
+      CMAKE_CUDA_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/opt/libtorch/share/cmake/Caffe2;/opt/libtorch/share/cmake/Caffe2/public/../Modules_CUDA_fix"
+    buildResult:
+      variable: "compile_result"
+      cached: true
+      stdout: |
+        Change Dir: '/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/ninja -v cmTC_f66ae
+        [1/2] /opt/cuda/bin/nvcc -forward-unknown-to-host-compiler   -std=c++20 "--generate-code=arch=compute_75,code=[compute_75,sm_75]" -MD -MT CMakeFiles/cmTC_f66ae.dir/detect_cuda_compute_capabilities.cu.o -MF CMakeFiles/cmTC_f66ae.dir/detect_cuda_compute_capabilities.cu.o.d -x cu -c /home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/detect_cuda_compute_capabilities.cu -o CMakeFiles/cmTC_f66ae.dir/detect_cuda_compute_capabilities.cu.o
+        [2/2] : && /usr/bin/g++  CMakeFiles/cmTC_f66ae.dir/detect_cuda_compute_capabilities.cu.o -o cmTC_f66ae  -lcudadevrt  -lcudart_static  -lrt  -lpthread  -ldl -L"/opt/cuda/targets/x86_64-linux/lib/stubs" -L"/opt/cuda/targets/x86_64-linux/lib" && :
+        
+      exitCode: 0
+    runResult:
+      variable: "run_result"
+      cached: true
+      stdout: |
+      exitCode: 255
+...
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:796 (find_path)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "path"
+    variable: "CUDA_TOOLKIT_INCLUDE"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "device_functions.h"
+    candidate_directories:
+      - "/opt/cuda/include/"
+      - "/opt/cuda/"
+    found: "/opt/cuda/include/"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.platformio/penv/bin"
+        - "/home/kevin/.dotnet/tools"
+        - "/home/kevin/dotfiles/scripts/"
+        - "/home/kevin/.rvm/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_INCLUDE_PATH:
+        - "/usr/include/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:851 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_CUDART_LIBRARY"
+    description: "\"cudart\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cudart"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcudart.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.platformio/penv/bin"
+        - "/home/kevin/.dotnet/tools"
+        - "/home/kevin/dotfiles/scripts/"
+        - "/home/kevin/.rvm/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:853 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cudart_static_LIBRARY"
+    description: "static CUDA runtime library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cudart_static"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcudart_static.a"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.platformio/penv/bin"
+        - "/home/kevin/.dotnet/tools"
+        - "/home/kevin/dotfiles/scripts/"
+        - "/home/kevin/.rvm/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:871 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cudadevrt_LIBRARY"
+    description: "\"cudadevrt\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cudadevrt"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcudadevrt.a"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.platformio/penv/bin"
+        - "/home/kevin/.dotnet/tools"
+        - "/home/kevin/dotfiles/scripts/"
+        - "/home/kevin/.rvm/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:908 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cupti_LIBRARY"
+    description: "\"cupti\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cupti"
+    candidate_directories:
+      - "/opt/cuda/extras/CUPTI/lib/x64/"
+      - "/opt/cuda/extras/CUPTI/lib64/"
+      - "/opt/cuda/extras/CUPTI/libx64/"
+      - "/opt/cuda/extras/CUPTI/lib/Win32/"
+      - "/opt/cuda/extras/CUPTI/lib/"
+      - "/opt/cuda/extras/CUPTI/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/extras/CUPTI/lib/x64/"
+      - "/opt/cuda/extras/CUPTI/lib64/"
+      - "/opt/cuda/extras/CUPTI/libx64/"
+      - "/opt/cuda/extras/CUPTI/lib/Win32/"
+      - "/opt/cuda/extras/CUPTI/lib/"
+      - "/opt/cuda/extras/CUPTI/libWin32/"
+      - "/opt/cuda/"
+    found: false
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.platformio/penv/bin"
+        - "/home/kevin/.dotnet/tools"
+        - "/home/kevin/dotfiles/scripts/"
+        - "/home/kevin/.rvm/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:938 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_CUDA_LIBRARY"
+    description: "\"cuda\" library (older versions only)."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cuda"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    found: false
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.platformio/penv/bin"
+        - "/home/kevin/.dotnet/tools"
+        - "/home/kevin/dotfiles/scripts/"
+        - "/home/kevin/.rvm/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:833 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:938 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_CUDA_LIBRARY"
+    description: "\"cuda\" library (older versions only)."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cuda"
+    candidate_directories:
+      - "/home/kevin/libs/libtorch/lib/"
+      - "/home/kevin/libs/libtorch/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/kevin/.rvm/bin/"
+      - "/home/kevin/.platformio/penv/bin/"
+      - "/home/kevin/.dotnet/tools/"
+      - "/home/kevin/dotfiles/scripts/"
+      - "/usr/local/lib/"
+      - "/usr/local/"
+      - "/usr/lib/"
+      - "/usr/"
+      - "/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/"
+      - "/usr/X11R6/lib/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/lib/"
+      - "/usr/pkg/"
+      - "/opt/lib/"
+      - "/opt/"
+      - "/usr/lib/X11/"
+      - "/usr/lib/nvidia-current/"
+    searched_directories:
+      - "/home/kevin/libs/libtorch/lib/"
+      - "/home/kevin/libs/libtorch/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/kevin/.rvm/bin/"
+      - "/home/kevin/.platformio/penv/bin/"
+      - "/home/kevin/.dotnet/tools/"
+      - "/home/kevin/dotfiles/scripts/"
+      - "/usr/local/lib/"
+      - "/usr/local/"
+    found: "/usr/lib/libcuda.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.platformio/penv/bin"
+        - "/home/kevin/.dotnet/tools"
+        - "/home/kevin/dotfiles/scripts/"
+        - "/home/kevin/.rvm/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:956 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cufft_LIBRARY"
+    description: "\"cufft\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cufft"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcufft.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.platformio/penv/bin"
+        - "/home/kevin/.dotnet/tools"
+        - "/home/kevin/dotfiles/scripts/"
+        - "/home/kevin/.rvm/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:957 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cublas_LIBRARY"
+    description: "\"cublas\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cublas"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcublas.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.platformio/penv/bin"
+        - "/home/kevin/.dotnet/tools"
+        - "/home/kevin/dotfiles/scripts/"
+        - "/home/kevin/.rvm/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:958 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cublasLt_LIBRARY"
+    description: "\"cublasLt\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cublasLt"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcublasLt.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.platformio/penv/bin"
+        - "/home/kevin/.dotnet/tools"
+        - "/home/kevin/dotfiles/scripts/"
+        - "/home/kevin/.rvm/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:960 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cusparse_LIBRARY"
+    description: "\"cusparse\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cusparse"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcusparse.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.platformio/penv/bin"
+        - "/home/kevin/.dotnet/tools"
+        - "/home/kevin/dotfiles/scripts/"
+        - "/home/kevin/.rvm/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:961 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_curand_LIBRARY"
+    description: "\"curand\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "curand"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcurand.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.platformio/penv/bin"
+        - "/home/kevin/.dotnet/tools"
+        - "/home/kevin/dotfiles/scripts/"
+        - "/home/kevin/.rvm/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:968 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_nppc_LIBRARY"
+    description: "\"nppc\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "nppc"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libnppc.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.platformio/penv/bin"
+        - "/home/kevin/.dotnet/tools"
+        - "/home/kevin/dotfiles/scripts/"
+        - "/home/kevin/.rvm/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:979 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_npps_LIBRARY"
+    description: "\"npps\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "npps"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libnpps.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.platformio/penv/bin"
+        - "/home/kevin/.dotnet/tools"
+        - "/home/kevin/dotfiles/scripts/"
+        - "/home/kevin/.rvm/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:982 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cusolver_LIBRARY"
+    description: "\"cusolver\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cusolver"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcusolver.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.platformio/penv/bin"
+        - "/home/kevin/.dotnet/tools"
+        - "/home/kevin/dotfiles/scripts/"
+        - "/home/kevin/.rvm/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/FindCUDAToolkit.cmake:869 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/FindCUDAToolkit.cmake:1035 (_CUDAToolkit_find_and_add_import_lib)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:59 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cupti_LIBRARY"
+    description: "\"cupti\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cupti"
+    candidate_directories:
+      - "/opt/cuda/lib/nvidia/current/"
+      - "/opt/cuda/lib/lib64/"
+      - "/opt/cuda/lib/lib/x64/"
+      - "/opt/cuda/lib/lib/"
+      - "/opt/cuda/lib/../extras/CUPTI/lib64/"
+      - "/opt/cuda/lib/../extras/CUPTI/lib/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/nvidia/current/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/../extras/CUPTI/lib64/"
+      - "/opt/cuda/../extras/CUPTI/lib/"
+      - "/opt/cuda/"
+      - "/home/kevin/libs/libtorch/lib/nvidia/current/"
+      - "/home/kevin/libs/libtorch/lib/lib64/"
+      - "/home/kevin/libs/libtorch/lib/lib/x64/"
+      - "/home/kevin/libs/libtorch/lib/lib/"
+      - "/home/kevin/libs/libtorch/lib/../extras/CUPTI/lib64/"
+      - "/home/kevin/libs/libtorch/lib/../extras/CUPTI/lib/"
+      - "/home/kevin/libs/libtorch/lib/"
+      - "/home/kevin/libs/libtorch/nvidia/current/"
+      - "/home/kevin/libs/libtorch/lib64/"
+      - "/home/kevin/libs/libtorch/lib/x64/"
+      - "/home/kevin/libs/libtorch/lib/"
+      - "/home/kevin/libs/libtorch/../extras/CUPTI/lib64/"
+      - "/home/kevin/libs/libtorch/../extras/CUPTI/lib/"
+      - "/home/kevin/libs/libtorch/"
+      - "/opt/cuda/lib/nvidia/current/"
+      - "/opt/cuda/lib/lib64/"
+      - "/opt/cuda/lib/lib/x64/"
+      - "/opt/cuda/lib/lib/"
+      - "/opt/cuda/lib/../extras/CUPTI/lib64/"
+      - "/opt/cuda/lib/../extras/CUPTI/lib/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/nvidia/current/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/../extras/CUPTI/lib64/"
+      - "/opt/cuda/../extras/CUPTI/lib/"
+      - "/opt/cuda/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/nvidia/current/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/lib64/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/lib/x64/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/lib/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/../extras/CUPTI/lib64/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/../extras/CUPTI/lib/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/nvidia/current/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/lib64/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/lib/x64/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/lib/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/../extras/CUPTI/lib64/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/../extras/CUPTI/lib/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/nvidia/current/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/lib64/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/lib/x64/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/lib/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/../extras/CUPTI/lib64/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/../extras/CUPTI/lib/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/"
+      - "/usr/local/sbin/nvidia/current/"
+      - "/usr/local/sbin/lib64/"
+      - "/usr/local/sbin/lib/x64/"
+      - "/usr/local/sbin/lib/"
+      - "/usr/local/sbin/../extras/CUPTI/lib64/"
+      - "/usr/local/sbin/../extras/CUPTI/lib/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/nvidia/current/"
+      - "/usr/local/bin/lib64/"
+      - "/usr/local/bin/lib/x64/"
+      - "/usr/local/bin/lib/"
+      - "/usr/local/bin/../extras/CUPTI/lib64/"
+      - "/usr/local/bin/../extras/CUPTI/lib/"
+      - "/usr/local/bin/"
+      - "/usr/bin/nvidia/current/"
+      - "/usr/bin/lib64/"
+      - "/usr/bin/lib/x64/"
+      - "/usr/bin/lib/"
+      - "/usr/bin/../extras/CUPTI/lib64/"
+      - "/usr/bin/../extras/CUPTI/lib/"
+      - "/usr/bin/"
+      - "/opt/cuda/bin/nvidia/current/"
+      - "/opt/cuda/bin/lib64/"
+      - "/opt/cuda/bin/lib/x64/"
+      - "/opt/cuda/bin/lib/"
+      - "/opt/cuda/bin/../extras/CUPTI/lib64/"
+      - "/opt/cuda/bin/../extras/CUPTI/lib/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/nvidia/current/"
+      - "/usr/lib/jvm/default/bin/lib64/"
+      - "/usr/lib/jvm/default/bin/lib/x64/"
+      - "/usr/lib/jvm/default/bin/lib/"
+      - "/usr/lib/jvm/default/bin/../extras/CUPTI/lib64/"
+      - "/usr/lib/jvm/default/bin/../extras/CUPTI/lib/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/nvidia/current/"
+      - "/usr/bin/site_perl/lib64/"
+      - "/usr/bin/site_perl/lib/x64/"
+      - "/usr/bin/site_perl/lib/"
+      - "/usr/bin/site_perl/../extras/CUPTI/lib64/"
+      - "/usr/bin/site_perl/../extras/CUPTI/lib/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/nvidia/current/"
+      - "/usr/bin/vendor_perl/lib64/"
+      - "/usr/bin/vendor_perl/lib/x64/"
+      - "/usr/bin/vendor_perl/lib/"
+      - "/usr/bin/vendor_perl/../extras/CUPTI/lib64/"
+      - "/usr/bin/vendor_perl/../extras/CUPTI/lib/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/nvidia/current/"
+      - "/usr/bin/core_perl/lib64/"
+      - "/usr/bin/core_perl/lib/x64/"
+      - "/usr/bin/core_perl/lib/"
+      - "/usr/bin/core_perl/../extras/CUPTI/lib64/"
+      - "/usr/bin/core_perl/../extras/CUPTI/lib/"
+      - "/usr/bin/core_perl/"
+      - "/home/kevin/.rvm/bin/nvidia/current/"
+      - "/home/kevin/.rvm/bin/lib64/"
+      - "/home/kevin/.rvm/bin/lib/x64/"
+      - "/home/kevin/.rvm/bin/lib/"
+      - "/home/kevin/.rvm/bin/../extras/CUPTI/lib64/"
+      - "/home/kevin/.rvm/bin/../extras/CUPTI/lib/"
+      - "/home/kevin/.rvm/bin/"
+      - "/home/kevin/.platformio/penv/bin/nvidia/current/"
+      - "/home/kevin/.platformio/penv/bin/lib64/"
+      - "/home/kevin/.platformio/penv/bin/lib/x64/"
+      - "/home/kevin/.platformio/penv/bin/lib/"
+      - "/home/kevin/.platformio/penv/bin/../extras/CUPTI/lib64/"
+      - "/home/kevin/.platformio/penv/bin/../extras/CUPTI/lib/"
+      - "/home/kevin/.platformio/penv/bin/"
+      - "/home/kevin/.dotnet/tools/nvidia/current/"
+      - "/home/kevin/.dotnet/tools/lib64/"
+      - "/home/kevin/.dotnet/tools/lib/x64/"
+      - "/home/kevin/.dotnet/tools/lib/"
+      - "/home/kevin/.dotnet/tools/../extras/CUPTI/lib64/"
+      - "/home/kevin/.dotnet/tools/../extras/CUPTI/lib/"
+      - "/home/kevin/.dotnet/tools/"
+      - "/home/kevin/dotfiles/scripts/nvidia/current/"
+      - "/home/kevin/dotfiles/scripts/lib64/"
+      - "/home/kevin/dotfiles/scripts/lib/x64/"
+      - "/home/kevin/dotfiles/scripts/lib/"
+      - "/home/kevin/dotfiles/scripts/../extras/CUPTI/lib64/"
+      - "/home/kevin/dotfiles/scripts/../extras/CUPTI/lib/"
+      - "/home/kevin/dotfiles/scripts/"
+      - "/usr/local/lib/nvidia/current/"
+      - "/usr/local/lib/lib64/"
+      - "/usr/local/lib/lib/x64/"
+      - "/usr/local/lib/lib/"
+      - "/usr/local/lib/../extras/CUPTI/lib64/"
+      - "/usr/local/lib/../extras/CUPTI/lib/"
+      - "/usr/local/lib/"
+      - "/usr/local/nvidia/current/"
+      - "/usr/local/lib64/"
+      - "/usr/local/lib/x64/"
+      - "/usr/local/lib/"
+      - "/usr/local/../extras/CUPTI/lib64/"
+      - "/usr/local/../extras/CUPTI/lib/"
+      - "/usr/local/"
+      - "/usr/lib/nvidia/current/"
+      - "/usr/lib/lib64/"
+      - "/usr/lib/lib/x64/"
+      - "/usr/lib/lib/"
+      - "/usr/lib/../extras/CUPTI/lib64/"
+      - "/usr/lib/../extras/CUPTI/lib/"
+      - "/usr/lib/"
+      - "/usr/nvidia/current/"
+      - "/usr/lib64/"
+      - "/usr/lib/x64/"
+      - "/usr/lib/"
+      - "/usr/../extras/CUPTI/lib64/"
+      - "/usr/../extras/CUPTI/lib/"
+      - "/usr/"
+      - "/lib/nvidia/current/"
+      - "/lib/lib64/"
+      - "/lib/lib/x64/"
+      - "/lib/lib/"
+      - "/lib/../extras/CUPTI/lib64/"
+      - "/lib/../extras/CUPTI/lib/"
+      - "/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/nvidia/current/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/lib64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/lib/x64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/../extras/CUPTI/lib64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/../extras/CUPTI/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/nvidia/current/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/x64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/../extras/CUPTI/lib64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/../extras/CUPTI/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/"
+      - "/usr/X11R6/lib/nvidia/current/"
+      - "/usr/X11R6/lib/lib64/"
+      - "/usr/X11R6/lib/lib/x64/"
+      - "/usr/X11R6/lib/lib/"
+      - "/usr/X11R6/lib/../extras/CUPTI/lib64/"
+      - "/usr/X11R6/lib/../extras/CUPTI/lib/"
+      - "/usr/X11R6/lib/"
+      - "/usr/X11R6/nvidia/current/"
+      - "/usr/X11R6/lib64/"
+      - "/usr/X11R6/lib/x64/"
+      - "/usr/X11R6/lib/"
+      - "/usr/X11R6/../extras/CUPTI/lib64/"
+      - "/usr/X11R6/../extras/CUPTI/lib/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/lib/nvidia/current/"
+      - "/usr/pkg/lib/lib64/"
+      - "/usr/pkg/lib/lib/x64/"
+      - "/usr/pkg/lib/lib/"
+      - "/usr/pkg/lib/../extras/CUPTI/lib64/"
+      - "/usr/pkg/lib/../extras/CUPTI/lib/"
+      - "/usr/pkg/lib/"
+      - "/usr/pkg/nvidia/current/"
+      - "/usr/pkg/lib64/"
+      - "/usr/pkg/lib/x64/"
+      - "/usr/pkg/lib/"
+      - "/usr/pkg/../extras/CUPTI/lib64/"
+      - "/usr/pkg/../extras/CUPTI/lib/"
+      - "/usr/pkg/"
+      - "/opt/lib/nvidia/current/"
+      - "/opt/lib/lib64/"
+      - "/opt/lib/lib/x64/"
+      - "/opt/lib/lib/"
+      - "/opt/lib/../extras/CUPTI/lib64/"
+      - "/opt/lib/../extras/CUPTI/lib/"
+      - "/opt/lib/"
+      - "/opt/nvidia/current/"
+      - "/opt/lib64/"
+      - "/opt/lib/x64/"
+      - "/opt/lib/"
+      - "/opt/../extras/CUPTI/lib64/"
+      - "/opt/../extras/CUPTI/lib/"
+      - "/opt/"
+      - "/usr/lib/X11/nvidia/current/"
+      - "/usr/lib/X11/lib64/"
+      - "/usr/lib/X11/lib/x64/"
+      - "/usr/lib/X11/lib/"
+      - "/usr/lib/X11/../extras/CUPTI/lib64/"
+      - "/usr/lib/X11/../extras/CUPTI/lib/"
+      - "/usr/lib/X11/"
+    searched_directories:
+      - "/opt/cuda/lib/nvidia/current/"
+      - "/opt/cuda/lib/lib64/"
+      - "/opt/cuda/lib/lib/x64/"
+      - "/opt/cuda/lib/lib/"
+      - "/opt/cuda/lib/../extras/CUPTI/lib64/"
+      - "/opt/cuda/lib/../extras/CUPTI/lib/"
+    found: "/opt/cuda/lib/libcupti.so"
+    search_context:
+      package_stack:
+        -
+          package_paths:
+            - "/opt/cuda"
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.platformio/penv/bin"
+        - "/home/kevin/.dotnet/tools"
+        - "/home/kevin/dotfiles/scripts/"
+        - "/home/kevin/.rvm/bin"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:99 (try_run)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    directories:
+      source: "/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/CMakeFiles/CMakeTmp"
+      binary: "/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CUDA_ARCHITECTURES: "75"
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/opt/libtorch/share/cmake/Caffe2;/opt/libtorch/share/cmake/Caffe2/public/../Modules_CUDA_fix"
+    buildResult:
+      variable: "compile_result"
+      cached: true
+      stdout: |
+        Change Dir: '/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/ninja -v cmTC_9ff97
+        [1/2] /usr/bin/c++  -I/opt/cuda/include -std=gnu++20 -o CMakeFiles/cmTC_9ff97.dir/detect_cuda_version.cc.o -c /home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/detect_cuda_version.cc
+        [2/2] : && /usr/bin/c++   CMakeFiles/cmTC_9ff97.dir/detect_cuda_version.cc.o -o cmTC_9ff97  -Wl,-rpath,/opt/cuda/lib64  /opt/cuda/lib64/libcudart.so && :
+        
+      exitCode: 0
+    runResult:
+      variable: "run_result"
+      cached: true
+      stdout: |
+        13.1
+      exitCode: 0
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA/select_compute_arch.cmake:128 (try_run)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA/select_compute_arch.cmake:188 (CUDA_DETECT_INSTALLED_GPUS)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/utils.cmake:331 (cuda_select_nvcc_arch_flags)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:320 (torch_cuda_get_nvcc_gencode_flag)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    directories:
+      source: "/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/CMakeFiles/CMakeTmp"
+      binary: "/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CUDA_ARCHITECTURES: "75"
+      CMAKE_CUDA_FLAGS: ""
+      CMAKE_CUDA_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/opt/libtorch/share/cmake/Caffe2;/opt/libtorch/share/cmake/Caffe2/public/../Modules_CUDA_fix"
+    buildResult:
+      variable: "compile_result"
+      cached: true
+      stdout: |
+        Change Dir: '/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/ninja -v cmTC_ce6c2
+        [1/2] /opt/cuda/bin/nvcc -forward-unknown-to-host-compiler   -std=c++20 "--generate-code=arch=compute_75,code=[compute_75,sm_75]" -MD -MT CMakeFiles/cmTC_ce6c2.dir/detect_cuda_compute_capabilities.cu.o -MF CMakeFiles/cmTC_ce6c2.dir/detect_cuda_compute_capabilities.cu.o.d -x cu -c /home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/detect_cuda_compute_capabilities.cu -o CMakeFiles/cmTC_ce6c2.dir/detect_cuda_compute_capabilities.cu.o
+        [2/2] : && /usr/bin/g++  CMakeFiles/cmTC_ce6c2.dir/detect_cuda_compute_capabilities.cu.o -o cmTC_ce6c2  -lcudadevrt  -lcudart_static  -lrt  -lpthread  -ldl -L"/opt/cuda/targets/x86_64-linux/lib/stubs" -L"/opt/cuda/targets/x86_64-linux/lib" && :
+        
+      exitCode: 0
+    runResult:
+      variable: "run_result"
+      cached: true
+      stdout: |
+      exitCode: 255
+...
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:796 (find_path)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "path"
+    variable: "CUDA_TOOLKIT_INCLUDE"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "device_functions.h"
+    candidate_directories:
+      - "/opt/cuda/include/"
+      - "/opt/cuda/"
+    found: "/opt/cuda/include/"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_INCLUDE_PATH:
+        - "/usr/include/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:851 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_CUDART_LIBRARY"
+    description: "\"cudart\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cudart"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcudart.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:853 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cudart_static_LIBRARY"
+    description: "static CUDA runtime library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cudart_static"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcudart_static.a"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:871 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cudadevrt_LIBRARY"
+    description: "\"cudadevrt\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cudadevrt"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcudadevrt.a"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:908 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cupti_LIBRARY"
+    description: "\"cupti\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cupti"
+    candidate_directories:
+      - "/opt/cuda/extras/CUPTI/lib/x64/"
+      - "/opt/cuda/extras/CUPTI/lib64/"
+      - "/opt/cuda/extras/CUPTI/libx64/"
+      - "/opt/cuda/extras/CUPTI/lib/Win32/"
+      - "/opt/cuda/extras/CUPTI/lib/"
+      - "/opt/cuda/extras/CUPTI/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/extras/CUPTI/lib/x64/"
+      - "/opt/cuda/extras/CUPTI/lib64/"
+      - "/opt/cuda/extras/CUPTI/libx64/"
+      - "/opt/cuda/extras/CUPTI/lib/Win32/"
+      - "/opt/cuda/extras/CUPTI/lib/"
+      - "/opt/cuda/extras/CUPTI/libWin32/"
+      - "/opt/cuda/"
+    found: false
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:938 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_CUDA_LIBRARY"
+    description: "\"cuda\" library (older versions only)."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cuda"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    found: false
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:833 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:938 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_CUDA_LIBRARY"
+    description: "\"cuda\" library (older versions only)."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cuda"
+    candidate_directories:
+      - "/home/kevin/libs/libtorch/lib/"
+      - "/home/kevin/libs/libtorch/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/kevin/.rvm/bin/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/"
+      - "/usr/local/lib/"
+      - "/usr/local/"
+      - "/usr/lib/"
+      - "/usr/"
+      - "/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/"
+      - "/usr/X11R6/lib/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/lib/"
+      - "/usr/pkg/"
+      - "/opt/lib/"
+      - "/opt/"
+      - "/usr/lib/X11/"
+      - "/usr/lib/nvidia-current/"
+    searched_directories:
+      - "/home/kevin/libs/libtorch/lib/"
+      - "/home/kevin/libs/libtorch/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/"
+      - "/usr/bin/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/"
+      - "/home/kevin/.rvm/bin/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/"
+      - "/usr/local/lib/"
+      - "/usr/local/"
+    found: "/usr/lib/libcuda.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:956 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cufft_LIBRARY"
+    description: "\"cufft\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cufft"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcufft.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:957 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cublas_LIBRARY"
+    description: "\"cublas\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cublas"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcublas.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:958 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cublasLt_LIBRARY"
+    description: "\"cublasLt\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cublasLt"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcublasLt.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:960 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cusparse_LIBRARY"
+    description: "\"cusparse\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cusparse"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcusparse.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:961 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_curand_LIBRARY"
+    description: "\"curand\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "curand"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcurand.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:968 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_nppc_LIBRARY"
+    description: "\"nppc\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "nppc"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libnppc.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:979 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_npps_LIBRARY"
+    description: "\"npps\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "npps"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libnpps.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:822 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:842 (cuda_find_library_local_first_with_path_ext)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:948 (cuda_find_library_local_first)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA.cmake:982 (find_cuda_helper_libs)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/FindCUDA.cmake:10 (include)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:29 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cusolver_LIBRARY"
+    description: "\"cusolver\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cusolver"
+    candidate_directories:
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/libx64/"
+      - "/opt/cuda/lib/Win32/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/libWin32/"
+      - "/opt/cuda/"
+    searched_directories:
+      - "/opt/cuda/lib/x64/"
+    found: "/opt/cuda/lib64/libcusolver.so"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/FindCUDAToolkit.cmake:869 (find_library)"
+      - "/opt/libtorch/share/cmake/Caffe2/FindCUDAToolkit.cmake:1035 (_CUDAToolkit_find_and_add_import_lib)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:59 (find_package)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    mode: "library"
+    variable: "CUDA_cupti_LIBRARY"
+    description: "\"cupti\" library"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "cupti"
+    candidate_directories:
+      - "/opt/cuda/lib/nvidia/current/"
+      - "/opt/cuda/lib/lib64/"
+      - "/opt/cuda/lib/lib/x64/"
+      - "/opt/cuda/lib/lib/"
+      - "/opt/cuda/lib/../extras/CUPTI/lib64/"
+      - "/opt/cuda/lib/../extras/CUPTI/lib/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/nvidia/current/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/../extras/CUPTI/lib64/"
+      - "/opt/cuda/../extras/CUPTI/lib/"
+      - "/opt/cuda/"
+      - "/home/kevin/libs/libtorch/lib/nvidia/current/"
+      - "/home/kevin/libs/libtorch/lib/lib64/"
+      - "/home/kevin/libs/libtorch/lib/lib/x64/"
+      - "/home/kevin/libs/libtorch/lib/lib/"
+      - "/home/kevin/libs/libtorch/lib/../extras/CUPTI/lib64/"
+      - "/home/kevin/libs/libtorch/lib/../extras/CUPTI/lib/"
+      - "/home/kevin/libs/libtorch/lib/"
+      - "/home/kevin/libs/libtorch/nvidia/current/"
+      - "/home/kevin/libs/libtorch/lib64/"
+      - "/home/kevin/libs/libtorch/lib/x64/"
+      - "/home/kevin/libs/libtorch/lib/"
+      - "/home/kevin/libs/libtorch/../extras/CUPTI/lib64/"
+      - "/home/kevin/libs/libtorch/../extras/CUPTI/lib/"
+      - "/home/kevin/libs/libtorch/"
+      - "/opt/cuda/lib/nvidia/current/"
+      - "/opt/cuda/lib/lib64/"
+      - "/opt/cuda/lib/lib/x64/"
+      - "/opt/cuda/lib/lib/"
+      - "/opt/cuda/lib/../extras/CUPTI/lib64/"
+      - "/opt/cuda/lib/../extras/CUPTI/lib/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/nvidia/current/"
+      - "/opt/cuda/lib64/"
+      - "/opt/cuda/lib/x64/"
+      - "/opt/cuda/lib/"
+      - "/opt/cuda/../extras/CUPTI/lib64/"
+      - "/opt/cuda/../extras/CUPTI/lib/"
+      - "/opt/cuda/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/nvidia/current/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/lib64/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/lib/x64/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/lib/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/../extras/CUPTI/lib64/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/../extras/CUPTI/lib/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5/bin/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/nvidia/current/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/lib64/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/lib/x64/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/lib/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/../extras/CUPTI/lib64/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/../extras/CUPTI/lib/"
+      - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/nvidia/current/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/lib64/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/lib/x64/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/lib/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/../extras/CUPTI/lib64/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/../extras/CUPTI/lib/"
+      - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin/"
+      - "/usr/local/sbin/nvidia/current/"
+      - "/usr/local/sbin/lib64/"
+      - "/usr/local/sbin/lib/x64/"
+      - "/usr/local/sbin/lib/"
+      - "/usr/local/sbin/../extras/CUPTI/lib64/"
+      - "/usr/local/sbin/../extras/CUPTI/lib/"
+      - "/usr/local/sbin/"
+      - "/usr/local/bin/nvidia/current/"
+      - "/usr/local/bin/lib64/"
+      - "/usr/local/bin/lib/x64/"
+      - "/usr/local/bin/lib/"
+      - "/usr/local/bin/../extras/CUPTI/lib64/"
+      - "/usr/local/bin/../extras/CUPTI/lib/"
+      - "/usr/local/bin/"
+      - "/usr/bin/nvidia/current/"
+      - "/usr/bin/lib64/"
+      - "/usr/bin/lib/x64/"
+      - "/usr/bin/lib/"
+      - "/usr/bin/../extras/CUPTI/lib64/"
+      - "/usr/bin/../extras/CUPTI/lib/"
+      - "/usr/bin/"
+      - "/opt/cuda/bin/nvidia/current/"
+      - "/opt/cuda/bin/lib64/"
+      - "/opt/cuda/bin/lib/x64/"
+      - "/opt/cuda/bin/lib/"
+      - "/opt/cuda/bin/../extras/CUPTI/lib64/"
+      - "/opt/cuda/bin/../extras/CUPTI/lib/"
+      - "/opt/cuda/bin/"
+      - "/usr/lib/jvm/default/bin/nvidia/current/"
+      - "/usr/lib/jvm/default/bin/lib64/"
+      - "/usr/lib/jvm/default/bin/lib/x64/"
+      - "/usr/lib/jvm/default/bin/lib/"
+      - "/usr/lib/jvm/default/bin/../extras/CUPTI/lib64/"
+      - "/usr/lib/jvm/default/bin/../extras/CUPTI/lib/"
+      - "/usr/lib/jvm/default/bin/"
+      - "/usr/bin/site_perl/nvidia/current/"
+      - "/usr/bin/site_perl/lib64/"
+      - "/usr/bin/site_perl/lib/x64/"
+      - "/usr/bin/site_perl/lib/"
+      - "/usr/bin/site_perl/../extras/CUPTI/lib64/"
+      - "/usr/bin/site_perl/../extras/CUPTI/lib/"
+      - "/usr/bin/site_perl/"
+      - "/usr/bin/vendor_perl/nvidia/current/"
+      - "/usr/bin/vendor_perl/lib64/"
+      - "/usr/bin/vendor_perl/lib/x64/"
+      - "/usr/bin/vendor_perl/lib/"
+      - "/usr/bin/vendor_perl/../extras/CUPTI/lib64/"
+      - "/usr/bin/vendor_perl/../extras/CUPTI/lib/"
+      - "/usr/bin/vendor_perl/"
+      - "/usr/bin/core_perl/nvidia/current/"
+      - "/usr/bin/core_perl/lib64/"
+      - "/usr/bin/core_perl/lib/x64/"
+      - "/usr/bin/core_perl/lib/"
+      - "/usr/bin/core_perl/../extras/CUPTI/lib64/"
+      - "/usr/bin/core_perl/../extras/CUPTI/lib/"
+      - "/usr/bin/core_perl/"
+      - "/home/kevin/.rvm/bin/nvidia/current/"
+      - "/home/kevin/.rvm/bin/lib64/"
+      - "/home/kevin/.rvm/bin/lib/x64/"
+      - "/home/kevin/.rvm/bin/lib/"
+      - "/home/kevin/.rvm/bin/../extras/CUPTI/lib64/"
+      - "/home/kevin/.rvm/bin/../extras/CUPTI/lib/"
+      - "/home/kevin/.rvm/bin/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/nvidia/current/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/lib64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/lib/x64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/../extras/CUPTI/lib64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/../extras/CUPTI/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/"
+      - "/usr/local/lib/nvidia/current/"
+      - "/usr/local/lib/lib64/"
+      - "/usr/local/lib/lib/x64/"
+      - "/usr/local/lib/lib/"
+      - "/usr/local/lib/../extras/CUPTI/lib64/"
+      - "/usr/local/lib/../extras/CUPTI/lib/"
+      - "/usr/local/lib/"
+      - "/usr/local/nvidia/current/"
+      - "/usr/local/lib64/"
+      - "/usr/local/lib/x64/"
+      - "/usr/local/lib/"
+      - "/usr/local/../extras/CUPTI/lib64/"
+      - "/usr/local/../extras/CUPTI/lib/"
+      - "/usr/local/"
+      - "/usr/lib/nvidia/current/"
+      - "/usr/lib/lib64/"
+      - "/usr/lib/lib/x64/"
+      - "/usr/lib/lib/"
+      - "/usr/lib/../extras/CUPTI/lib64/"
+      - "/usr/lib/../extras/CUPTI/lib/"
+      - "/usr/lib/"
+      - "/usr/nvidia/current/"
+      - "/usr/lib64/"
+      - "/usr/lib/x64/"
+      - "/usr/lib/"
+      - "/usr/../extras/CUPTI/lib64/"
+      - "/usr/../extras/CUPTI/lib/"
+      - "/usr/"
+      - "/lib/nvidia/current/"
+      - "/lib/lib64/"
+      - "/lib/lib/x64/"
+      - "/lib/lib/"
+      - "/lib/../extras/CUPTI/lib64/"
+      - "/lib/../extras/CUPTI/lib/"
+      - "/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/nvidia/current/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/lib64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/lib/x64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/../extras/CUPTI/lib64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/../extras/CUPTI/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/nvidia/current/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/x64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/../extras/CUPTI/lib64/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/../extras/CUPTI/lib/"
+      - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/"
+      - "/usr/X11R6/lib/nvidia/current/"
+      - "/usr/X11R6/lib/lib64/"
+      - "/usr/X11R6/lib/lib/x64/"
+      - "/usr/X11R6/lib/lib/"
+      - "/usr/X11R6/lib/../extras/CUPTI/lib64/"
+      - "/usr/X11R6/lib/../extras/CUPTI/lib/"
+      - "/usr/X11R6/lib/"
+      - "/usr/X11R6/nvidia/current/"
+      - "/usr/X11R6/lib64/"
+      - "/usr/X11R6/lib/x64/"
+      - "/usr/X11R6/lib/"
+      - "/usr/X11R6/../extras/CUPTI/lib64/"
+      - "/usr/X11R6/../extras/CUPTI/lib/"
+      - "/usr/X11R6/"
+      - "/usr/pkg/lib/nvidia/current/"
+      - "/usr/pkg/lib/lib64/"
+      - "/usr/pkg/lib/lib/x64/"
+      - "/usr/pkg/lib/lib/"
+      - "/usr/pkg/lib/../extras/CUPTI/lib64/"
+      - "/usr/pkg/lib/../extras/CUPTI/lib/"
+      - "/usr/pkg/lib/"
+      - "/usr/pkg/nvidia/current/"
+      - "/usr/pkg/lib64/"
+      - "/usr/pkg/lib/x64/"
+      - "/usr/pkg/lib/"
+      - "/usr/pkg/../extras/CUPTI/lib64/"
+      - "/usr/pkg/../extras/CUPTI/lib/"
+      - "/usr/pkg/"
+      - "/opt/lib/nvidia/current/"
+      - "/opt/lib/lib64/"
+      - "/opt/lib/lib/x64/"
+      - "/opt/lib/lib/"
+      - "/opt/lib/../extras/CUPTI/lib64/"
+      - "/opt/lib/../extras/CUPTI/lib/"
+      - "/opt/lib/"
+      - "/opt/nvidia/current/"
+      - "/opt/lib64/"
+      - "/opt/lib/x64/"
+      - "/opt/lib/"
+      - "/opt/../extras/CUPTI/lib64/"
+      - "/opt/../extras/CUPTI/lib/"
+      - "/opt/"
+      - "/usr/lib/X11/nvidia/current/"
+      - "/usr/lib/X11/lib64/"
+      - "/usr/lib/X11/lib/x64/"
+      - "/usr/lib/X11/lib/"
+      - "/usr/lib/X11/../extras/CUPTI/lib64/"
+      - "/usr/lib/X11/../extras/CUPTI/lib/"
+      - "/usr/lib/X11/"
+    searched_directories:
+      - "/opt/cuda/lib/nvidia/current/"
+      - "/opt/cuda/lib/lib64/"
+      - "/opt/cuda/lib/lib/x64/"
+      - "/opt/cuda/lib/lib/"
+      - "/opt/cuda/lib/../extras/CUPTI/lib64/"
+      - "/opt/cuda/lib/../extras/CUPTI/lib/"
+    found: "/opt/cuda/lib/libcupti.so"
+    search_context:
+      package_stack:
+        -
+          package_paths:
+            - "/opt/cuda"
+      CMAKE_PREFIX_PATH:
+        - "/home/kevin/libs/libtorch"
+      ENV{PATH}:
+        - "/home/kevin/.rvm/gems/ruby-3.2.5/bin"
+        - "/home/kevin/.rvm/gems/ruby-3.2.5@global/bin"
+        - "/home/kevin/.rvm/rubies/ruby-3.2.5/bin"
+        - "/usr/local/sbin"
+        - "/usr/local/bin"
+        - "/usr/bin"
+        - "/opt/cuda/bin"
+        - "/usr/lib/jvm/default/bin"
+        - "/usr/bin/site_perl"
+        - "/usr/bin/vendor_perl"
+        - "/usr/bin/core_perl"
+        - "/home/kevin/.rvm/bin"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64"
+      CMAKE_INSTALL_PREFIX: "/usr/local"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/local"
+        - "/usr"
+        - "/"
+        - "/home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64"
+        - "/usr/local"
+        - "/usr/X11R6"
+        - "/usr/pkg"
+        - "/opt"
+      CMAKE_SYSTEM_LIBRARY_PATH:
+        - "/usr/lib/X11"
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:99 (try_run)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    directories:
+      source: "/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/CMakeFiles/CMakeTmp"
+      binary: "/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CUDA_ARCHITECTURES: "75"
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/opt/libtorch/share/cmake/Caffe2;/opt/libtorch/share/cmake/Caffe2/public/../Modules_CUDA_fix"
+    buildResult:
+      variable: "compile_result"
+      cached: true
+      stdout: |
+        Change Dir: '/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/ninja -v cmTC_df7e8
+        [1/2] /usr/bin/c++  -I/opt/cuda/include -std=gnu++20 -fdiagnostics-color=always -o CMakeFiles/cmTC_df7e8.dir/detect_cuda_version.cc.o -c /home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/detect_cuda_version.cc
+        [2/2] : && /usr/bin/c++   CMakeFiles/cmTC_df7e8.dir/detect_cuda_version.cc.o -o cmTC_df7e8  -Wl,-rpath,/opt/cuda/lib64  /opt/cuda/lib64/libcudart.so && :
+        
+      exitCode: 0
+    runResult:
+      variable: "run_result"
+      cached: true
+      stdout: |
+        13.1
+      exitCode: 0
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA/select_compute_arch.cmake:128 (try_run)"
+      - "/opt/libtorch/share/cmake/Caffe2/Modules_CUDA_fix/upstream/FindCUDA/select_compute_arch.cmake:188 (CUDA_DETECT_INSTALLED_GPUS)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/utils.cmake:331 (cuda_select_nvcc_arch_flags)"
+      - "/opt/libtorch/share/cmake/Caffe2/public/cuda.cmake:320 (torch_cuda_get_nvcc_gencode_flag)"
+      - "/opt/libtorch/share/cmake/Caffe2/Caffe2Config.cmake:86 (include)"
+      - "/opt/libtorch/share/cmake/Torch/TorchConfig.cmake:68 (find_package)"
+      - "CMakeLists.txt:44 (find_package)"
+    directories:
+      source: "/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/CMakeFiles/CMakeTmp"
+      binary: "/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CUDA_ARCHITECTURES: "75"
+      CMAKE_CUDA_FLAGS: ""
+      CMAKE_CUDA_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/opt/libtorch/share/cmake/Caffe2;/opt/libtorch/share/cmake/Caffe2/public/../Modules_CUDA_fix"
+    buildResult:
+      variable: "compile_result"
+      cached: true
+      stdout: |
+        Change Dir: '/home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /home/kevin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/ninja -v cmTC_7c636
+        [1/2] /opt/cuda/bin/nvcc -forward-unknown-to-host-compiler   -std=c++20 "--generate-code=arch=compute_75,code=[compute_75,sm_75]" -MD -MT CMakeFiles/cmTC_7c636.dir/detect_cuda_compute_capabilities.cu.o -MF CMakeFiles/cmTC_7c636.dir/detect_cuda_compute_capabilities.cu.o.d -x cu -c /home/kevin/Documents/projects/cpp/TouristHelper/cmake-build-debug/detect_cuda_compute_capabilities.cu -o CMakeFiles/cmTC_7c636.dir/detect_cuda_compute_capabilities.cu.o
+        [2/2] : && /usr/bin/g++  CMakeFiles/cmTC_7c636.dir/detect_cuda_compute_capabilities.cu.o -o cmTC_7c636  -lcudadevrt  -lcudart_static  -lrt  -lpthread  -ldl -L"/opt/cuda/targets/x86_64-linux/lib/stubs" -L"/opt/cuda/targets/x86_64-linux/lib" && :
+        
+      exitCode: 0
+    runResult:
+      variable: "run_result"
+      cached: true
+      stdout: |
+      exitCode: 255
+...

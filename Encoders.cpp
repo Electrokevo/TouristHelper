@@ -8,21 +8,21 @@ using namespace std;
 // ==========================================
 // LabelEncoder Implementation
 // ==========================================
-double LabelEncoder::encode(string s) {
+float LabelEncoder::encode(string s) {
   // Trim whitespace
   const auto strBegin = s.find_first_not_of(" \t\r\n");
   if (strBegin == string::npos)
-    return -1.0;
+    return -1.0f;
   const auto strEnd = s.find_last_not_of(" \t\r\n");
   const auto strRange = strEnd - strBegin + 1;
   string trimmed = s.substr(strBegin, strRange);
 
   if (forward_map.find(trimmed) != forward_map.end()) {
-    return (double)forward_map[trimmed];
+    return (float)forward_map[trimmed];
   }
 
   if (frozen)
-    return -1.0;
+    return -1.0f;
 
   int new_id = reverse_map.size();
   forward_map[trimmed] = new_id;
@@ -91,7 +91,7 @@ size_t LabelEncoder::numClasses() const { return reverse_map.size(); }
 // ==========================================
 // HierarchicalCantonEncoder Implementation
 // ==========================================
-double HierarchicalCantonEncoder::encode(int provId, string cantonName) {
+float HierarchicalCantonEncoder::encode(int provId, string cantonName) {
   const auto strBegin = cantonName.find_first_not_of(" \t\r\n");
   if (strBegin == string::npos)
     return -1.0;
@@ -103,5 +103,5 @@ double HierarchicalCantonEncoder::encode(int provId, string cantonName) {
     hierarchy[provId][trimmed] = nextLocalId;
   }
 
-  return (double)((provId * OFFSET_MULTIPLIER) + hierarchy[provId][trimmed]);
+  return (float)((provId * OFFSET_MULTIPLIER) + hierarchy[provId][trimmed]);
 }

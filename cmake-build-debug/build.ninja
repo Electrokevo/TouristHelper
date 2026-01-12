@@ -51,7 +51,7 @@ build cmake_object_order_depends_target_TouristHelper: phony || .
 
 build CMakeFiles/TouristHelper.dir/main.cpp.o: CXX_COMPILER__TouristHelper_unscanned_Debug /home/kevin/Documents/projects/cpp/TouristHelper/main.cpp || cmake_object_order_depends_target_TouristHelper
   CONFIG = Debug
-  DEFINES = -DUSE_C10D_GLOO -DUSE_C10D_NCCL -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE
+  DEFINES = -DMLPACK_ENABLE_ANN_SERIALIZATION -DUSE_C10D_GLOO -DUSE_C10D_NCCL -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE
   DEP_FILE = CMakeFiles/TouristHelper.dir/main.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always -O3 -fopenmp
   INCLUDES = -I/home/kevin/.cache/yay/mlpack/src/mlpack-4.6.2/src -isystem /opt/libtorch/include -isystem /opt/libtorch/include/torch/csrc/api/include -isystem /opt/cuda/include
@@ -60,7 +60,7 @@ build CMakeFiles/TouristHelper.dir/main.cpp.o: CXX_COMPILER__TouristHelper_unsca
 
 build CMakeFiles/TouristHelper.dir/Helpers.cpp.o: CXX_COMPILER__TouristHelper_unscanned_Debug /home/kevin/Documents/projects/cpp/TouristHelper/Helpers.cpp || cmake_object_order_depends_target_TouristHelper
   CONFIG = Debug
-  DEFINES = -DUSE_C10D_GLOO -DUSE_C10D_NCCL -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE
+  DEFINES = -DMLPACK_ENABLE_ANN_SERIALIZATION -DUSE_C10D_GLOO -DUSE_C10D_NCCL -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE
   DEP_FILE = CMakeFiles/TouristHelper.dir/Helpers.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always -O3 -fopenmp
   INCLUDES = -I/home/kevin/.cache/yay/mlpack/src/mlpack-4.6.2/src -isystem /opt/libtorch/include -isystem /opt/libtorch/include/torch/csrc/api/include -isystem /opt/cuda/include
@@ -69,7 +69,7 @@ build CMakeFiles/TouristHelper.dir/Helpers.cpp.o: CXX_COMPILER__TouristHelper_un
 
 build CMakeFiles/TouristHelper.dir/Encoders.cpp.o: CXX_COMPILER__TouristHelper_unscanned_Debug /home/kevin/Documents/projects/cpp/TouristHelper/Encoders.cpp || cmake_object_order_depends_target_TouristHelper
   CONFIG = Debug
-  DEFINES = -DUSE_C10D_GLOO -DUSE_C10D_NCCL -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE
+  DEFINES = -DMLPACK_ENABLE_ANN_SERIALIZATION -DUSE_C10D_GLOO -DUSE_C10D_NCCL -DUSE_DISTRIBUTED -DUSE_RPC -DUSE_TENSORPIPE
   DEP_FILE = CMakeFiles/TouristHelper.dir/Encoders.cpp.o.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always -O3 -fopenmp
   INCLUDES = -I/home/kevin/.cache/yay/mlpack/src/mlpack-4.6.2/src -isystem /opt/libtorch/include -isystem /opt/libtorch/include/torch/csrc/api/include -isystem /opt/cuda/include

@@ -14,7 +14,7 @@ private:
   bool frozen = false;
 
 public:
-  double encode(std::string s);
+  float encode(std::string s);
   std::string decode(int id) const;
   void freeze();
   void unfreeze();
@@ -29,7 +29,7 @@ public:
   std::map<int, std::map<std::string, int>> hierarchy;
   const int OFFSET_MULTIPLIER = 1000;
 
-  double encode(int provId, std::string cantonName);
+  float encode(int provId, std::string cantonName);
 };
 
 #endif // ENCODERS_H

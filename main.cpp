@@ -9,329 +9,308 @@
 #include <sstream>
 #include <vector>
 
-// Only include if you need specific CUDA API calls, otherwise NVBLAS handles it
+// --- GPU / LIBTORCH INCLUDES ---
 #include <cuda_runtime.h>
 #include <torch/torch.h>
+
 using namespace mlpack;
 using namespace mlpack::tree;
 using namespace mlpack::ann;
 using namespace std;
 using namespace arma;
 
-// ================ agregado inicio para uso del gpu ===================
-struct ContextualLSTMImpl : torch::nn::Module {
-  // Embeddings
-  torch::nn::Embedding cantonEmb{nullptr};
-  torch::nn::Embedding serviceEmb{nullptr};
+// ==========================================
+// 1. LIBTORCH GPU LSTM MODULE (RESTORED)
+// ==========================================
+// Note: This struct is available for use if you switch to a custom LibTorch loop.
+// The current main() uses MLPack's RNN, which runs on GPU via NVBLAS.
+struct ContextualLSTMImpl : torch::nn::Module
+{
+    torch::nn::Embedding cantonEmb{nullptr};
+    torch::nn::Embedding serviceEmb{nullptr};
+    torch::nn::LSTM lstm{nullptr};
+    torch::nn::Linear fc{nullptr};
+    int64_t hiddenSize;
 
-  // LSTM
-  torch::nn::LSTM lstm{nullptr};
+    ContextualLSTMImpl(int64_t numCantones, int64_t numServicios,
+                       int64_t embCantonDim = 16, int64_t embServiceDim = 32,
+                       int64_t hidden = 64)
+        : hiddenSize(hidden)
+    {
+        cantonEmb = register_module(
+            "cantonEmb", torch::nn::Embedding(numCantones, embCantonDim));
+        serviceEmb = register_module(
+            "serviceEmb", torch::nn::Embedding(numServicios, embServiceDim));
 
-  // Clasificador
-  torch::nn::Linear fc{nullptr};
+        lstm = register_module(
+            "lstm", torch::nn::LSTM(
+                torch::nn::LSTMOptions(embCantonDim + embServiceDim, hidden)
+                .batch_first(true)));
 
-  int64_t hiddenSize;
+        fc = register_module("fc", torch::nn::Linear(hidden, numServicios));
+    }
 
-  ContextualLSTMImpl(int64_t numCantones,
-                     int64_t numServicios,
-                     int64_t embCantonDim = 16,
-                     int64_t embServiceDim = 32,
-                     int64_t hidden = 64)
-      : hiddenSize(hidden)
-  {
-    cantonEmb = register_module("cantonEmb", torch::nn::Embedding(numCantones, embCantonDim));
-    serviceEmb = register_module("serviceEmb", torch::nn::Embedding(numServicios, embServiceDim));
-
-    // input_size = embCantonDim + embServiceDim
-    lstm = register_module("lstm", torch::nn::LSTM(
-        torch::nn::LSTMOptions(embCantonDim + embServiceDim, hidden)
-            .batch_first(true)
-    ));
-
-    fc = register_module("fc", torch::nn::Linear(hidden, numServicios));
-  }
-
-  // cantonIds: [B] (int64)
-  // serviceSeq: [B, T] (int64)  (servicio_actual en secuencia)
-  // return logits: [B, numServicios]
-  torch::Tensor forward(torch::Tensor cantonIds, torch::Tensor serviceSeq) {
-    // Emb canton: [B, embC]
-    auto cEmb = cantonEmb(cantonIds);
-
-    // Emb servicios: [B, T, embS]
-    auto sEmb = serviceEmb(serviceSeq);
-
-    // Repetir canton embedding a lo largo del tiempo: [B, T, embC]
-    auto cEmbRep = cEmb.unsqueeze(1).repeat({1, sEmb.size(1), 1});
-
-    // Concatenar: [B, T, embC+embS]
-    auto x = torch::cat({cEmbRep, sEmb}, /*dim=*/2);
-
-    // LSTM output: out [B, T, hidden]
-    auto lstmOut = std::get<0>(lstm(x));
-
-    // Tomar el último timestep: [B, hidden]
-    auto last = lstmOut.select(1, lstmOut.size(1) - 1);
-
-    // Logits: [B, numServicios]
-    return fc(last);
-  }
+    torch::Tensor forward(torch::Tensor cantonIds, torch::Tensor serviceSeq)
+    {
+        auto cEmb = cantonEmb(cantonIds);
+        auto sEmb = serviceEmb(serviceSeq);
+        auto cEmbRep = cEmb.unsqueeze(1).repeat({1, sEmb.size(1), 1});
+        auto x = torch::cat({cEmbRep, sEmb}, 2);
+        auto lstmOut = std::get<0>(lstm(x));
+        auto last = lstmOut.select(1, lstmOut.size(1) - 1);
+        return fc(last);
+    }
 };
+
 TORCH_MODULE(ContextualLSTM);
-// ================ agregado fin para uso del gpu ===================
 
-int main() {
-  // --- 0. GPU CHECK ---
-  // We use standard CUDA API to check, avoiding heavy Torch dependency just for
-  // a print
-  int deviceCount = 0;
-  cudaError_t error_id = cudaGetDeviceCount(&deviceCount);
-  if (error_id == cudaSuccess && deviceCount > 0) {
-    cout << "CUDA Device Detected! (" << deviceCount << " GPU(s) found)"
-         << endl;
-    cout << "NVBLAS should automatically offload matrix ops." << endl;
-  } else {
-    cout << "No CUDA Device found or CUDA driver error. Running on CPU."
-         << endl;
-  }
+// ==========================================
+// 2. MAIN APPLICATION
+// ==========================================
+int main()
+{
+    // --- A. GPU & LIBTORCH CHECKS (RESTORED) ---
+    cout << "--- System Check ---" << endl;
 
-  // ================ agregado inicio para uso ver si uso del gpu ===================
-  torch::Device device(torch::kCPU);
-  if (torch::cuda::is_available()) {
-    device = torch::Device(torch::kCUDA);
-    std::cout << "LibTorch CUDA disponible. Usando GPU.\n";
-  } else {
-    std::cout << "CUDA NO disponible en LibTorch. Usando CPU.\n";
-  }
-  // ================ agregado fin para uso ver si uso del gpu ===================
-
-  // --- 1. DATA LOADING ---
-  cout << "\n--- 1. Data Loading ---" << endl;
-  string filename = "join_2025_01.csv";
-  ifstream file(filename);
-  if (!file.is_open()) {
-    cerr << "Error opening " << filename << endl;
-    return -1;
-  }
-
-  // Encoders
-  LabelEncoder encProv, encParr, encSubtipo, encServ;
-  HierarchicalCantonEncoder encCanton;
-
-  // Feature Headers
-  vector<string> featureNames;
-  string header, feature;
-  getline(file, header);
-  stringstream headerStream(header);
-  int h_idx = 0;
-  while (getline(headerStream, feature, ',')) {
-    if (h_idx++ == 5)
-      continue; // Skip Target column in features list
-    featureNames.push_back(feature);
-  }
-
-  int n_feats = featureNames.size();
-
-  // Storage
-  map<int, vector<double>> canton_histories; // For Contextual LSTM
-  vector<vector<double>> features(n_feats);  // For RF
-  vector<double> targets;
-
-  string line, cell;
-  int validRows = 0;
-
-  cout << "Parsing CSV..." << endl;
-  while (getline(file, line)) {
-    stringstream lineStream(line);
-    vector<string> row;
-    while (getline(lineStream, cell, ','))
-      row.push_back(cell);
-
-    if (row.size() < n_feats)
-      continue;
-
-    // Target: Service
-    double targetVal = encServ.encode(row[5]);
-    if (targetVal < 0)
-      continue;
-
-    targets.push_back(targetVal);
-
-    // Feature 0: Date
-    features[0].push_back(parseDate(row[0]));
-
-    // Feature 1: Prov (Hierarchical Base)
-    int provId = (int)encProv.encode(row[1]);
-    features[1].push_back((double)provId);
-
-    // Feature 2: Canton (Hierarchical Child)
-    int cantonId = (int)encCanton.encode(provId, row[2]);
-    features[2].push_back((double)cantonId);
-
-    // Feature 3: Numeric
-    features[3].push_back(parseNumeric(row[3]));
-
-    // Feature 4 & 5: Categorical
-    features[4].push_back(encParr.encode(row[4]));
-    features[5].push_back(encSubtipo.encode(row[6]));
-
-    // Rest: Demographics
-    for (int i = 0; i < n_feats - 6; ++i) {
-      int colIndex = 7 + i;
-      if (colIndex < row.size())
-        features[6 + i].push_back(parseNumeric(row[colIndex]));
-      else
-        features[6 + i].push_back(0.0);
+    // 1. Raw CUDA Check
+    int deviceCount = 0;
+    cudaError_t err = cudaGetDeviceCount(&deviceCount);
+    if (err == cudaSuccess && deviceCount > 0)
+    {
+        cout << "[CUDA] Detected " << deviceCount << " GPU(s)." << endl;
+        cout << "[MLPack] NVBLAS should automatically offload matrix ops." << endl;
+    }
+    else
+    {
+        cout << "[CUDA] No device found (or driver error). Running on CPU." << endl;
     }
 
-    // Store history for LSTM (Context: Canton)
-    canton_histories[cantonId].push_back(targetVal);
-
-    validRows++;
-  }
-
-  if (validRows == 0) {
-    cerr << "No valid data loaded." << endl;
-    return -1;
-  }
-  cout << "Data Loaded: " << validRows << " samples." << endl;
-
-  // Build Matrix
-  mat dataMat(n_feats, validRows);
-  Row<size_t> labelMat(validRows);
-
-  for (size_t i = 0; i < validRows; ++i) {
-    for (size_t f = 0; f < n_feats; ++f) {
-      dataMat(f, i) = features[f][i];
+    // 2. LibTorch Check
+    if (torch::cuda::is_available())
+    {
+        cout << "[LibTorch] CUDA is available. (Device: " << torch::kCUDA << ")" << endl;
     }
-    labelMat(i) = (size_t)targets[i];
-  }
-
-  // Check Orthogonality
-  CheckOrthogonality(dataMat, featureNames);
-
-  // --- 2. RANDOM FOREST ---
-  cout << "\n--- 2. Random Forest (Classification) ---" << endl;
-
-  mat trainData, testData;
-  Row<size_t> trainLabels, testLabels;
-  data::Split(dataMat, labelMat, trainData, testData, trainLabels, testLabels,
-              0.2);
-
-  RandomForest<GiniGain, RandomDimensionSelect> rf;
-
-  cout << "Training Random Forest..." << endl;
-  auto start = chrono::high_resolution_clock::now();
-
-  // 200 Trees, MinLeaf 1
-  rf.Train(trainData, trainLabels, encServ.numClasses(), 200, 1);
-
-  auto stop = chrono::high_resolution_clock::now();
-  cout << "RF Training finished in "
-       << chrono::duration_cast<chrono::milliseconds>(stop - start).count()
-       << " ms." << endl;
-
-  Row<size_t> predictions;
-  rf.Classify(testData, predictions);
-  size_t correct = 0;
-  for (size_t i = 0; i < testLabels.n_elem; ++i) {
-    if (predictions[i] == testLabels[i])
-      correct++;
-  }
-  cout << "RF Accuracy: " << (double)correct / testLabels.n_elem * 100.0 << "%"
-       << endl;
-
-  // --- 3. CONTEXTUAL LSTM ---
-  cout << "\n--- 3. Contextual LSTM (Predict Next Service in Canton) ---"
-       << endl;
-
-  // Prepare Cubes
-  size_t totalLstmSamples = 0;
-  for (auto const &[cantonId, history] : canton_histories) {
-    if (history.size() > 1)
-      totalLstmSamples += (history.size() - 1);
-  }
-
-  double maxServ = (double)encServ.numClasses();
-  double maxCant = 25000.0; // Approx max for hierarchical
-
-  cube inputCube(2, totalLstmSamples, 1);
-  cube targetCube(1, totalLstmSamples, 1);
-
-  size_t idx = 0;
-  for (auto const &[cantonId, history] : canton_histories) {
-    if (history.size() < 2)
-      continue;
-
-    for (size_t i = 0; i < history.size() - 1; ++i) {
-      // Feature 0: Current Service
-      inputCube(0, idx, 0) = history[i] / maxServ;
-      // Feature 1: Context (Canton)
-      inputCube(1, idx, 0) = (double)cantonId / maxCant;
-
-      // Target
-      targetCube(0, idx, 0) = history[i + 1] / maxServ;
-      idx++;
+    else
+    {
+        cout << "[LibTorch] CUDA not available. Using CPU." << endl;
     }
-  }
 
-  cout << "LSTM Training Samples: " << totalLstmSamples << endl;
 
-  // Define Network
-  RNN<MeanSquaredError> rnn;
-  rnn.Add<Linear>(32); // Increased hidden size for GPU
-  rnn.Add<LSTM>(32);
-  rnn.Add<Linear>(1);
+    // --- B. DATA LOADING ---
+    cout << "\n--- 1. Data Loading ---" << endl;
+    string filename = "../Datasets/join_2022_05_v2.csv";
 
-  // Optimizer (Corrected for Epochs)
-  const size_t BATCH_SIZE = 64; // Larger batch for GPU efficiency
-  const size_t EPOCHS = 50;
-  size_t iterPerEpoch = totalLstmSamples / BATCH_SIZE;
-  if (iterPerEpoch == 0)
-    iterPerEpoch = 1; // Safety
-  size_t totalIterations = iterPerEpoch * EPOCHS;
+    LabelEncoder encProv, encSubtipo, encServ;
+    HierarchicalCantonEncoder encCanton;
 
-  cout << "Total Iterations: " << totalIterations << " (" << EPOCHS
-       << " Epochs)" << endl;
+    // --- PASS 1: SCAN METADATA ---
+    cout << "Pass 1: Scanning file for metadata..." << endl;
+    ifstream file(filename);
+    if (!file.is_open())
+    {
+        cerr << "Error: " << filename << endl;
+        return -1;
+    }
 
-  ens::Adam optimizer(0.005, BATCH_SIZE, 0.9, 0.999, 1e-8, totalIterations,
-                      1e-15);
+    string line, cell, header;
+    getline(file, header);
 
-  cout << "Training LSTM..." << endl;
-  rnn.Train(inputCube, targetCube, optimizer, ens::PrintLoss(),
-            ens::ProgressBar());
+    // Count columns dynamically
+    stringstream ss(header);
+    int totalCsvCols = 0;
+    while (getline(ss, cell, ',')) totalCsvCols++;
+    int numStatsCols = max(0, totalCsvCols - 5);
 
-  // --- 4. PREDICTION DEMO ---
-  cout << "\n--- Prediction Demo ---" << endl;
-  // Context: "Seguridad Ciudadana" (ID Lookup) in "Cuenca" (Hierarchical
-  // Lookup)
+    int n_feats = 1 + 24 + 1 + 1 + numStatsCols; // Date + Prov(24) + Canton + Subtype + Stats
+    size_t totalRows = 0;
 
-  // For demo, we just pick the very last event from our data to be safe
-  // In a real app, you would use encCanton.encode(provID, "Cuenca") to find the
-  // ID.
+    while (getline(file, line))
+    {
+        stringstream lineStream(line);
+        vector<string> row;
+        row.reserve(totalCsvCols);
+        while (getline(lineStream, cell, ',')) row.push_back(cell);
+        if (row.size() < 5) continue;
 
-  double lastCantonID = 1000.0; // Hardcoded example for Cuenca
-  string demoService = "Seguridad Ciudadana";
-  double lastServiceID = encServ.encode(demoService);
-  if (lastServiceID < 0)
-    lastServiceID = 0; // Fallback
+        encProv.encode(row[0]);
+        encCanton.encode((int)encProv.encode(row[0]), row[1]);
+        encServ.encode(row[2]);
+        encSubtipo.encode(row[3]);
+        totalRows++;
+    }
+    encProv.freeze();
+    encSubtipo.freeze();
 
-  cube query(2, 1, 1);
-  query(0, 0, 0) = lastServiceID / maxServ;
-  query(1, 0, 0) = lastCantonID / maxCant;
+    // --- PASS 2: LOAD DATA ---
+    cout << "Pass 2: Loading " << totalRows << " rows directly to RAM..." << endl;
+    fmat dataMat(n_feats, totalRows);
+    Row<size_t> labelMat(totalRows);
+    map<int, vector<float>> canton_histories;
 
-  cube predCube;
-  rnn.Predict(query, predCube);
+    file.clear();
+    file.seekg(0);
+    getline(file, header);
+    size_t idx = 0;
+    while (getline(file, line) && idx < totalRows)
+    {
+        stringstream lineStream(line);
+        vector<string> row;
+        row.reserve(totalCsvCols);
+        while (getline(lineStream, cell, ',')) row.push_back(cell);
+        if (row.size() < 5) continue;
 
-  int nextID = (int)(predCube(0, 0, 0) * maxServ);
-  if (nextID < 0)
-    nextID = 0;
-  if (nextID >= encServ.numClasses())
-    nextID = encServ.numClasses() - 1;
+        float targetVal = (float)encServ.encode(row[2]);
+        if (targetVal < 0) continue;
+        labelMat(idx) = (size_t)targetVal;
 
-  cout << "Context: " << demoService << " (ID " << lastServiceID
-       << ") in Canton " << lastCantonID << endl;
-  cout << "Predicted Next Service: " << encServ.decode(nextID) << endl;
+        // Features
+        dataMat(0, idx) = parseNumeric(row[4]); // Date
+        int provId = (int)encProv.encode(row[0]);
+        for (int p = 0; p < 24; ++p) dataMat(1 + p, idx) = (p == provId) ? 1.0f : 0.0f; // OneHot Prov
 
-  return 0;
+        int cantonId = (int)encCanton.encode(provId, row[1]);
+        dataMat(25, idx) = (float)cantonId;
+        dataMat(26, idx) = (float)encSubtipo.encode(row[3]);
+
+        for (int k = 0; k < numStatsCols; ++k)
+        {
+            if (5 + k < row.size()) dataMat(27 + k, idx) = parseNumeric(row[5 + k]);
+        }
+
+        // History
+        canton_histories[cantonId].push_back(targetVal);
+        idx++;
+    }
+    file.close();
+
+    // --- C. RANDOM FOREST ---
+    cout << "\n--- 2. Random Forest ---" << endl;
+    fmat trainData, testData;
+    Row<size_t> trainLabels, testLabels;
+    data::Split(dataMat, labelMat, trainData, testData, trainLabels, testLabels, 0.3);
+    dataMat.clear(); // Free RAM
+
+    RandomForest<GiniGain, RandomDimensionSelect> rf;
+    cout << "Training RF (MinLeaf=50)..." << endl;
+    rf.Train(trainData, trainLabels, encServ.numClasses(), 20, 50);
+
+    mlpack::data::Save("rf_model.bin", "rf_model", rf, false);
+    cout << "RF Saved." << endl;
+
+    // --- D. LSTM ---
+    cout << "\n--- 3. Contextual LSTM (Probabilistic) ---" << endl;
+
+    size_t totalLstmSamples = 0;
+    for (auto const& [cantonId, history] : canton_histories)
+    {
+        if (history.size() > 1) totalLstmSamples += (history.size() - 1);
+    }
+
+    // 1. Setup Dimensions
+    int numClasses = (int)encServ.numClasses();
+    float maxCant = 25000.0f;
+
+    cout << "LSTM Configuration:" << endl;
+    cout << "  Output Neurons: " << numClasses << endl;
+    cout << "  Target Labels: 0 to " << (numClasses - 1) << endl;
+
+    // 2. Prepare Training Data
+    fcube inputCube(2, totalLstmSamples, 1);
+    fcube targetCube(1, totalLstmSamples, 1);
+
+    size_t c_idx = 0;
+    float maxLabelFound = -1.0f;
+
+    for (auto const& [cantonId, history] : canton_histories)
+    {
+        if (history.size() < 2) continue;
+
+        for (size_t i = 0; i < history.size() - 1; ++i)
+        {
+            inputCube(0, c_idx, 0) = history[i] / (float)numClasses;
+            inputCube(1, c_idx, 0) = (float)cantonId / maxCant;
+
+            float label = history[i + 1];
+            // Safety Clamp
+            if (label >= numClasses) label = (float)(numClasses - 1);
+            if (label < 0) label = 0.0f;
+
+            targetCube(0, c_idx, 0) = label;
+            if (label > maxLabelFound) maxLabelFound = label;
+            c_idx++;
+        }
+    }
+    canton_histories.clear(); // Free RAM
+
+    cout << "  Max Label in Data: " << maxLabelFound << endl;
+
+    // 3. Define Network
+    using FloatOutputLayer = NegativeLogLikelihoodType<arma::fmat>;
+    RNN<FloatOutputLayer, RandomInitialization, arma::fmat> rnn;
+
+    rnn.Add<LinearType<arma::fmat>>(32);
+    rnn.Add<LSTMType<arma::fmat>>(32);
+    rnn.Add<LinearType<arma::fmat>>(numClasses);
+    rnn.Add<LogSoftMaxType<arma::fmat>>();
+
+    // 4. Train
+    const size_t BATCH_SIZE = 128;
+    const size_t EPOCHS = 10;
+    size_t iterPerEpoch = totalLstmSamples / BATCH_SIZE;
+    if (iterPerEpoch == 0) iterPerEpoch = 1;
+
+    ens::Adam optimizer(0.001, BATCH_SIZE, 0.9, 0.999, 1e-8, iterPerEpoch * EPOCHS, 1e-9);
+
+    cout << "Training LSTM Classifier..." << endl;
+    rnn.Train(inputCube, targetCube, optimizer, ens::PrintLoss(), ens::ProgressBar());
+
+    // --- 4. PREDICTION DEMO (DO THIS BEFORE SAVING) ---
+    // Moving this up prevents memory corruption from the Save() function
+    cout << "\n--- Prediction Demo ---" << endl;
+
+    float lastCantonID = 1000.0f;
+    string demoService = "Seguridad Ciudadana";
+    float lastServiceID = (float)encServ.encode(demoService);
+
+    // Prepare Query
+    fcube query(2, 1, 1);
+    query(0, 0, 0) = lastServiceID / (float)numClasses;
+    query(1, 0, 0) = lastCantonID / maxCant;
+
+    // FIX: Pre-allocate result container to prevent resizing crash
+    // Dimensions: [NumClasses, BatchSize(1), TimeSteps(1)]
+    fcube predLogProbs(numClasses, 1, 1);
+
+    // Predict
+    rnn.Predict(query, predLogProbs);
+
+    cout << "Context: " << demoService << endl;
+    cout << "Probabilities:" << endl;
+
+    float maxProb = -1.0f;
+    int bestClass = -1;
+
+    for (int c = 0; c < numClasses; ++c)
+    {
+        float prob = exp(predLogProbs(c, 0, 0));
+
+        if (prob > maxProb)
+        {
+            maxProb = prob;
+            bestClass = c;
+        }
+        if (prob > 0.01f)
+        {
+            cout << "  " << encServ.decode(c) << ": " << (prob * 100.0f) << "%" << endl;
+        }
+    }
+    cout << "Best Guess: " << encServ.decode(bestClass) << endl;
+
+    // --- 5. SAVE MODELS (DO THIS LAST) ---
+    cout << "\n--- Saving Models ---" << endl;
+    mlpack::data::Save("rf_model.bin", "rf_model", rf, false);
+    mlpack::data::Save("lstm_model.bin", "lstm_model", rnn, false);
+    cout << "Models Saved." << endl;
+
+    exit(0);
 }

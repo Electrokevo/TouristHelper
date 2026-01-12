@@ -44,7 +44,7 @@ list(APPEND CMAKE_PREFIX_PATH "$ENV{HOME}/libs/libtorch")
 find_package(Torch REQUIRED)
 
 # --- 3. Build Configuration ---
-
+add_definitions(-DMLPACK_ENABLE_ANN_SERIALIZATION)
 # Note: Using the file names from our consolidated solution
 add_executable(TouristHelper main.cpp Helpers.cpp Encoders.cpp)
 

@@ -5,9 +5,9 @@
 #include <string>
 #include <vector>
 
-double parseDate(const std::string &dateStr);
-double parseNumeric(const std::string &s);
-void CheckOrthogonality(const arma::mat &features,
+float parseDate(const std::string &dateStr);
+float parseNumeric(const std::string &s);
+void CheckOrthogonality(const arma::fmat &features,
                         const std::vector<std::string> &featureNames);
 
 #endif // HELPERS_H

@@ -1,3 +1,0 @@
-/home/davidalexx99/Documents/TouristHelperProduccion/TouristHelper/build/CMakeFiles/TouristHelper.dir
-/home/davidalexx99/Documents/TouristHelperProduccion/TouristHelper/build/CMakeFiles/edit_cache.dir
-/home/davidalexx99/Documents/TouristHelperProduccion/TouristHelper/build/CMakeFiles/rebuild_cache.dir
