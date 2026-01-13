@@ -1,0 +1,1794 @@
+[
+    {
+        "idCanton": 23,
+        "idProvincia": 0,
+        "nombreProvincia": "AZUAY",
+        "nombreCanton": "CAMILO PONCE ENRIQUEZ",
+        "lat": -2.9640696,
+        "lon": -79.5630363
+    },
+    {
+        "idCanton": 39,
+        "idProvincia": 0,
+        "nombreProvincia": "AZUAY",
+        "nombreCanton": "CHORDELEG",
+        "lat": -2.9844675,
+        "lon": -78.7307218
+    },
+    {
+        "idCanton": 45,
+        "idProvincia": 0,
+        "nombreProvincia": "AZUAY",
+        "nombreCanton": "CUENCA",
+        "lat": -2.8974072,
+        "lon": -79.0041726
+    },
+    {
+        "idCanton": 55,
+        "idProvincia": 0,
+        "nombreProvincia": "AZUAY",
+        "nombreCanton": "EL PAN",
+        "lat": -2.8390285,
+        "lon": -78.654035
+    },
+    {
+        "idCanton": 66,
+        "idProvincia": 0,
+        "nombreProvincia": "AZUAY",
+        "nombreCanton": "GIRON",
+        "lat": -3.1589778,
+        "lon": -79.1102467
+    },
+    {
+        "idCanton": 70,
+        "idProvincia": 0,
+        "nombreProvincia": "AZUAY",
+        "nombreCanton": "GUACHAPALA",
+        "lat": -2.7668108,
+        "lon": -78.7113488
+    },
+    {
+        "idCanton": 71,
+        "idProvincia": 0,
+        "nombreProvincia": "AZUAY",
+        "nombreCanton": "GUALACEO",
+        "lat": -2.9180205,
+        "lon": -78.8461586
+    },
+    {
+        "idCanton": 116,
+        "idProvincia": 0,
+        "nombreProvincia": "AZUAY",
+        "nombreCanton": "NABON",
+        "lat": -3.3328263,
+        "lon": -79.0996575
+    },
+    {
+        "idCanton": 124,
+        "idProvincia": 0,
+        "nombreProvincia": "AZUAY",
+        "nombreCanton": "O\u00d1A",
+        "lat": -3.4963084,
+        "lon": -79.1092823
+    },
+    {
+        "idCanton": 138,
+        "idProvincia": 0,
+        "nombreProvincia": "AZUAY",
+        "nombreCanton": "PAUTE",
+        "lat": -2.7468493,
+        "lon": -78.7362416
+    },
+    {
+        "idCanton": 151,
+        "idProvincia": 0,
+        "nombreProvincia": "AZUAY",
+        "nombreCanton": "PUCARA",
+        "lat": -3.1748913,
+        "lon": -79.5147127
+    },
+    {
+        "idCanton": 174,
+        "idProvincia": 0,
+        "nombreProvincia": "AZUAY",
+        "nombreCanton": "SAN FERNANDO",
+        "lat": -3.1398718,
+        "lon": -79.2794841
+    },
+    {
+        "idCanton": 188,
+        "idProvincia": 0,
+        "nombreProvincia": "AZUAY",
+        "nombreCanton": "SANTA ISABEL",
+        "lat": -3.1839392,
+        "lon": -79.3594118
+    },
+    {
+        "idCanton": 196,
+        "idProvincia": 0,
+        "nombreProvincia": "AZUAY",
+        "nombreCanton": "SEVILLA DE ORO",
+        "lat": -2.7051608,
+        "lon": -78.6014387
+    },
+    {
+        "idCanton": 200,
+        "idProvincia": 0,
+        "nombreProvincia": "AZUAY",
+        "nombreCanton": "SIGSIG",
+        "lat": -3.1331749,
+        "lon": -78.8454434
+    },
+    {
+        "idCanton": 21,
+        "idProvincia": 1,
+        "nombreProvincia": "BOLIVAR",
+        "nombreCanton": "CALUMA",
+        "lat": -1.5976675,
+        "lon": -79.1963263
+    },
+    {
+        "idCanton": 35,
+        "idProvincia": 1,
+        "nombreProvincia": "BOLIVAR",
+        "nombreCanton": "CHILLANES",
+        "lat": -1.9432708,
+        "lon": -79.0660695
+    },
+    {
+        "idCanton": 36,
+        "idProvincia": 1,
+        "nombreProvincia": "BOLIVAR",
+        "nombreCanton": "CHIMBO",
+        "lat": -1.6765037,
+        "lon": -79.1310605
+    },
+    {
+        "idCanton": 51,
+        "idProvincia": 1,
+        "nombreProvincia": "BOLIVAR",
+        "nombreCanton": "ECHEANDIA",
+        "lat": -1.4469547,
+        "lon": -79.2735861
+    },
+    {
+        "idCanton": 75,
+        "idProvincia": 1,
+        "nombreProvincia": "BOLIVAR",
+        "nombreCanton": "GUARANDA",
+        "lat": -1.4398571,
+        "lon": -79.0576662
+    },
+    {
+        "idCanton": 94,
+        "idProvincia": 1,
+        "nombreProvincia": "BOLIVAR",
+        "nombreCanton": "LAS NAVES",
+        "lat": -1.2813225,
+        "lon": -79.3013369
+    },
+    {
+        "idCanton": 178,
+        "idProvincia": 1,
+        "nombreProvincia": "BOLIVAR",
+        "nombreCanton": "SAN MIGUEL",
+        "lat": -1.8120574,
+        "lon": -79.127262
+    },
+    {
+        "idCanton": 19,
+        "idProvincia": 2,
+        "nombreProvincia": "CARCHI",
+        "nombreCanton": "BOLIVAR",
+        "lat": 0.472635,
+        "lon": -77.9358505
+    },
+    {
+        "idCanton": 63,
+        "idProvincia": 2,
+        "nombreProvincia": "CARCHI",
+        "nombreCanton": "ESPEJO",
+        "lat": 0.713927,
+        "lon": -77.9662264
+    },
+    {
+        "idCanton": 108,
+        "idProvincia": 2,
+        "nombreProvincia": "CARCHI",
+        "nombreCanton": "MIRA",
+        "lat": 0.7170135,
+        "lon": -78.1918295
+    },
+    {
+        "idCanton": 113,
+        "idProvincia": 2,
+        "nombreProvincia": "CARCHI",
+        "nombreCanton": "MONTUFAR",
+        "lat": 0.5684335,
+        "lon": -77.8087822
+    },
+    {
+        "idCanton": 181,
+        "idProvincia": 2,
+        "nombreProvincia": "CARCHI",
+        "nombreCanton": "SAN PEDRO DE HUACA",
+        "lat": 0.6233631,
+        "lon": -77.7206362
+    },
+    {
+        "idCanton": 212,
+        "idProvincia": 2,
+        "nombreProvincia": "CARCHI",
+        "nombreCanton": "TULCAN",
+        "lat": 0.8115707,
+        "lon": -77.7172151
+    },
+    {
+        "idCanton": 11,
+        "idProvincia": 3,
+        "nombreProvincia": "CA\u00d1AR",
+        "nombreCanton": "AZOGUES",
+        "lat": -2.6317291,
+        "lon": -78.7008934
+    },
+    {
+        "idCanton": 18,
+        "idProvincia": 3,
+        "nombreProvincia": "CA\u00d1AR",
+        "nombreCanton": "BIBLIAN",
+        "lat": -2.6748261,
+        "lon": -78.9802821
+    },
+    {
+        "idCanton": 28,
+        "idProvincia": 3,
+        "nombreProvincia": "CA\u00d1AR",
+        "nombreCanton": "CA\u00d1AR",
+        "lat": -2.4749335,
+        "lon": -79.1800778
+    },
+    {
+        "idCanton": 49,
+        "idProvincia": 3,
+        "nombreProvincia": "CA\u00d1AR",
+        "nombreCanton": "DELEG",
+        "lat": -2.7682771,
+        "lon": -78.9279213
+    },
+    {
+        "idCanton": 58,
+        "idProvincia": 3,
+        "nombreProvincia": "CA\u00d1AR",
+        "nombreCanton": "EL TAMBO",
+        "lat": -2.4828078,
+        "lon": -78.9133964
+    },
+    {
+        "idCanton": 90,
+        "idProvincia": 3,
+        "nombreProvincia": "CA\u00d1AR",
+        "nombreCanton": "LA TRONCAL",
+        "lat": -2.433689,
+        "lon": -79.3751632
+    },
+    {
+        "idCanton": 206,
+        "idProvincia": 3,
+        "nombreProvincia": "CA\u00d1AR",
+        "nombreCanton": "SUSCAL",
+        "lat": -2.4636345,
+        "lon": -79.0706385
+    },
+    {
+        "idCanton": 2,
+        "idProvincia": 4,
+        "nombreProvincia": "CHIMBORAZO",
+        "nombreCanton": "ALAUSI",
+        "lat": -2.3250494,
+        "lon": -78.703566
+    },
+    {
+        "idCanton": 33,
+        "idProvincia": 4,
+        "nombreProvincia": "CHIMBORAZO",
+        "nombreCanton": "CHAMBO",
+        "lat": -1.74403,
+        "lon": -78.5425997
+    },
+    {
+        "idCanton": 40,
+        "idProvincia": 4,
+        "nombreProvincia": "CHIMBORAZO",
+        "nombreCanton": "CHUNCHI",
+        "lat": -2.3285653,
+        "lon": -78.8932832
+    },
+    {
+        "idCanton": 42,
+        "idProvincia": 4,
+        "nombreProvincia": "CHIMBORAZO",
+        "nombreCanton": "COLTA",
+        "lat": -1.797093,
+        "lon": -78.8494368
+    },
+    {
+        "idCanton": 46,
+        "idProvincia": 4,
+        "nombreProvincia": "CHIMBORAZO",
+        "nombreCanton": "CUMANDA",
+        "lat": -2.2108666,
+        "lon": -79.103584
+    },
+    {
+        "idCanton": 73,
+        "idProvincia": 4,
+        "nombreProvincia": "CHIMBORAZO",
+        "nombreCanton": "GUAMOTE",
+        "lat": -2.0493321,
+        "lon": -78.6426693
+    },
+    {
+        "idCanton": 74,
+        "idProvincia": 4,
+        "nombreProvincia": "CHIMBORAZO",
+        "nombreCanton": "GUANO",
+        "lat": -1.539923,
+        "lon": -78.6578385
+    },
+    {
+        "idCanton": 130,
+        "idProvincia": 4,
+        "nombreProvincia": "CHIMBORAZO",
+        "nombreCanton": "PALLATANGA",
+        "lat": -2.0167297,
+        "lon": -78.9302293
+    },
+    {
+        "idCanton": 143,
+        "idProvincia": 4,
+        "nombreProvincia": "CHIMBORAZO",
+        "nombreCanton": "PENIPE",
+        "lat": -1.55404,
+        "lon": -78.4569246
+    },
+    {
+        "idCanton": 165,
+        "idProvincia": 4,
+        "nombreProvincia": "CHIMBORAZO",
+        "nombreCanton": "RIOBAMBA",
+        "lat": -1.6732765,
+        "lon": -78.6482479
+    },
+    {
+        "idCanton": 89,
+        "idProvincia": 5,
+        "nombreProvincia": "COTOPAXI",
+        "nombreCanton": "LA MANA",
+        "lat": -0.7841908,
+        "lon": -79.1010573
+    },
+    {
+        "idCanton": 95,
+        "idProvincia": 5,
+        "nombreProvincia": "COTOPAXI",
+        "nombreCanton": "LATACUNGA",
+        "lat": -0.9340311,
+        "lon": -78.6145758
+    },
+    {
+        "idCanton": 133,
+        "idProvincia": 5,
+        "nombreProvincia": "COTOPAXI",
+        "nombreCanton": "PANGUA",
+        "lat": -1.1010492,
+        "lon": -79.1645444
+    },
+    {
+        "idCanton": 155,
+        "idProvincia": 5,
+        "nombreProvincia": "COTOPAXI",
+        "nombreCanton": "PUJILI",
+        "lat": -1.0077046,
+        "lon": -78.8559205
+    },
+    {
+        "idCanton": 169,
+        "idProvincia": 5,
+        "nombreProvincia": "COTOPAXI",
+        "nombreCanton": "SALCEDO",
+        "lat": -1.0570033,
+        "lon": -78.5411139
+    },
+    {
+        "idCanton": 194,
+        "idProvincia": 5,
+        "nombreProvincia": "COTOPAXI",
+        "nombreCanton": "SAQUISILI",
+        "lat": -0.8359835,
+        "lon": -78.7312624
+    },
+    {
+        "idCanton": 199,
+        "idProvincia": 5,
+        "nombreProvincia": "COTOPAXI",
+        "nombreCanton": "SIGCHOS",
+        "lat": -0.6130214,
+        "lon": -78.8818616
+    },
+    {
+        "idCanton": 8,
+        "idProvincia": 6,
+        "nombreProvincia": "EL ORO",
+        "nombreCanton": "ARENILLAS",
+        "lat": -3.5859238,
+        "lon": -80.0974316
+    },
+    {
+        "idCanton": 10,
+        "idProvincia": 6,
+        "nombreProvincia": "EL ORO",
+        "nombreCanton": "ATAHUALPA",
+        "lat": -3.5571598,
+        "lon": -79.7097668
+    },
+    {
+        "idCanton": 15,
+        "idProvincia": 6,
+        "nombreProvincia": "EL ORO",
+        "nombreCanton": "BALSAS",
+        "lat": -3.7742179,
+        "lon": -79.831096
+    },
+    {
+        "idCanton": 34,
+        "idProvincia": 6,
+        "nombreProvincia": "EL ORO",
+        "nombreCanton": "CHILLA",
+        "lat": -3.4376206,
+        "lon": -79.6283343
+    },
+    {
+        "idCanton": 54,
+        "idProvincia": 6,
+        "nombreProvincia": "EL ORO",
+        "nombreCanton": "EL GUABO",
+        "lat": -3.1629001,
+        "lon": -79.7584498
+    },
+    {
+        "idCanton": 78,
+        "idProvincia": 6,
+        "nombreProvincia": "EL ORO",
+        "nombreCanton": "HUAQUILLAS",
+        "lat": -3.4756231,
+        "lon": -80.184453
+    },
+    {
+        "idCanton": 93,
+        "idProvincia": 6,
+        "nombreProvincia": "EL ORO",
+        "nombreCanton": "LAS LAJAS",
+        "lat": -3.8007237,
+        "lon": -80.0801451
+    },
+    {
+        "idCanton": 102,
+        "idProvincia": 6,
+        "nombreProvincia": "EL ORO",
+        "nombreCanton": "MACHALA",
+        "lat": -3.3148937,
+        "lon": -79.9512804
+    },
+    {
+        "idCanton": 104,
+        "idProvincia": 6,
+        "nombreProvincia": "EL ORO",
+        "nombreCanton": "MARCABELI",
+        "lat": -3.7733434,
+        "lon": -79.9223384
+    },
+    {
+        "idCanton": 135,
+        "idProvincia": 6,
+        "nombreProvincia": "EL ORO",
+        "nombreCanton": "PASAJE",
+        "lat": -3.3234936,
+        "lon": -79.7625976
+    },
+    {
+        "idCanton": 147,
+        "idProvincia": 6,
+        "nombreProvincia": "EL ORO",
+        "nombreCanton": "PI\u00d1AS",
+        "lat": -3.7106809,
+        "lon": -79.7832238
+    },
+    {
+        "idCanton": 149,
+        "idProvincia": 6,
+        "nombreProvincia": "EL ORO",
+        "nombreCanton": "PORTOVELO",
+        "lat": -3.7152273,
+        "lon": -79.6172038
+    },
+    {
+        "idCanton": 190,
+        "idProvincia": 6,
+        "nombreProvincia": "EL ORO",
+        "nombreCanton": "SANTA ROSA",
+        "lat": -3.4145538,
+        "lon": -80.154904
+    },
+    {
+        "idCanton": 221,
+        "idProvincia": 6,
+        "nombreProvincia": "EL ORO",
+        "nombreCanton": "ZARUMA",
+        "lat": -3.5111939,
+        "lon": -79.5131743
+    },
+    {
+        "idCanton": 9,
+        "idProvincia": 7,
+        "nombreProvincia": "ESMERALDAS",
+        "nombreCanton": "ATACAMES",
+        "lat": 0.7971086,
+        "lon": -79.8790841
+    },
+    {
+        "idCanton": 60,
+        "idProvincia": 7,
+        "nombreProvincia": "ESMERALDAS",
+        "nombreCanton": "ELOY ALFARO",
+        "lat": 0.874044,
+        "lon": -78.9950332
+    },
+    {
+        "idCanton": 62,
+        "idProvincia": 7,
+        "nombreProvincia": "ESMERALDAS",
+        "nombreCanton": "ESMERALDAS",
+        "lat": 0.9668153,
+        "lon": -79.6523847
+    },
+    {
+        "idCanton": 115,
+        "idProvincia": 7,
+        "nombreProvincia": "ESMERALDAS",
+        "nombreCanton": "MUISNE",
+        "lat": 0.5387247,
+        "lon": -79.8817211
+    },
+    {
+        "idCanton": 162,
+        "idProvincia": 7,
+        "nombreProvincia": "ESMERALDAS",
+        "nombreCanton": "QUININDE",
+        "lat": 0.328723,
+        "lon": -79.4726416
+    },
+    {
+        "idCanton": 166,
+        "idProvincia": 7,
+        "nombreProvincia": "ESMERALDAS",
+        "nombreCanton": "RIOVERDE",
+        "lat": 1.0743099,
+        "lon": -79.412292
+    },
+    {
+        "idCanton": 177,
+        "idProvincia": 7,
+        "nombreProvincia": "ESMERALDAS",
+        "nombreCanton": "SAN LORENZO",
+        "lat": 0.9850634,
+        "lon": -78.6869333
+    },
+    {
+        "idCanton": 80,
+        "idProvincia": 8,
+        "nombreProvincia": "GALAPAGOS",
+        "nombreCanton": "ISABELA",
+        "lat": -0.9621044,
+        "lon": -90.9589474
+    },
+    {
+        "idCanton": 173,
+        "idProvincia": 8,
+        "nombreProvincia": "GALAPAGOS",
+        "nombreCanton": "SAN CRISTOBAL",
+        "lat": -0.9151226,
+        "lon": -89.5662955
+    },
+    {
+        "idCanton": 186,
+        "idProvincia": 8,
+        "nombreProvincia": "GALAPAGOS",
+        "nombreCanton": "SANTA CRUZ",
+        "lat": -0.6288151,
+        "lon": -90.3638752
+    },
+    {
+        "idCanton": 3,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "ALFREDO BAQUERIZO MORENO",
+        "lat": -1.9494337,
+        "lon": -79.5495283
+    },
+    {
+        "idCanton": 14,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "BALAO",
+        "lat": -2.8852516,
+        "lon": -79.7180498
+    },
+    {
+        "idCanton": 16,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "BALZAR",
+        "lat": -1.3062992,
+        "lon": -79.9367148
+    },
+    {
+        "idCanton": 41,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "COLIMES",
+        "lat": -1.5161582,
+        "lon": -80.0818751
+    },
+    {
+        "idCanton": -1,
+        "idProvincia": -1,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "CRNEL. MARCELINO MARIDUE\u00d1A",
+        "lat": 0.0,
+        "lon": 0.0
+    },
+    {
+        "idCanton": 48,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "DAULE",
+        "lat": -1.9200069,
+        "lon": -79.9129307
+    },
+    {
+        "idCanton": 50,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "DURAN",
+        "lat": -2.2127014,
+        "lon": -79.7895887
+    },
+    {
+        "idCanton": 59,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "EL TRIUNFO",
+        "lat": -2.2907784,
+        "lon": -79.3660575
+    },
+    {
+        "idCanton": 61,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "EMPALME",
+        "lat": -0.9911895,
+        "lon": -79.6644135
+    },
+    {
+        "idCanton": -1,
+        "idProvincia": -1,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "GNRAL. ANTONIO ELIZALDE",
+        "lat": 0.0,
+        "lon": 0.0
+    },
+    {
+        "idCanton": 76,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "GUAYAQUIL",
+        "lat": -2.1900572,
+        "lon": -79.8868669
+    },
+    {
+        "idCanton": 81,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "ISIDRO AYORA",
+        "lat": -1.8796754,
+        "lon": -80.1463096
+    },
+    {
+        "idCanton": 99,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "LOMAS DE SARGENTILLO",
+        "lat": -1.8348374,
+        "lon": -80.0789495
+    },
+    {
+        "idCanton": 107,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "MILAGRO",
+        "lat": -2.1179635,
+        "lon": -79.5552042
+    },
+    {
+        "idCanton": 118,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "NARANJAL",
+        "lat": -2.5731305,
+        "lon": -79.5325634
+    },
+    {
+        "idCanton": 119,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "NARANJITO",
+        "lat": -2.1590388,
+        "lon": -79.3904646
+    },
+    {
+        "idCanton": 120,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "NOBOL",
+        "lat": -1.9817843,
+        "lon": -80.067067
+    },
+    {
+        "idCanton": 129,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "PALESTINA",
+        "lat": -1.6318981,
+        "lon": -79.9273316
+    },
+    {
+        "idCanton": 140,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "PEDRO CARBO",
+        "lat": -1.8672671,
+        "lon": -80.3009814
+    },
+    {
+        "idCanton": 148,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "PLAYAS",
+        "lat": -2.5937913,
+        "lon": -80.4261454
+    },
+    {
+        "idCanton": 171,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "SALITRE",
+        "lat": -1.8289209,
+        "lon": -79.8187323
+    },
+    {
+        "idCanton": 172,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "SAMBORONDON",
+        "lat": -2.0155653,
+        "lon": -79.7562694
+    },
+    {
+        "idCanton": 175,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "SAN JACINTO DE YAGUACHI",
+        "lat": -2.1178456,
+        "lon": -79.7359387
+    },
+    {
+        "idCanton": 189,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "SANTA LUCIA",
+        "lat": -1.7145863,
+        "lon": -80.0426304
+    },
+    {
+        "idCanton": 201,
+        "idProvincia": 9,
+        "nombreProvincia": "GUAYAS",
+        "nombreCanton": "SIMON BOLIVAR",
+        "lat": -2.0424101,
+        "lon": -79.4218634
+    },
+    {
+        "idCanton": 5,
+        "idProvincia": 10,
+        "nombreProvincia": "IMBABURA",
+        "nombreCanton": "ANTONIO ANTE",
+        "lat": 0.3316022,
+        "lon": -78.219615
+    },
+    {
+        "idCanton": 43,
+        "idProvincia": 10,
+        "nombreProvincia": "IMBABURA",
+        "nombreCanton": "COTACACHI",
+        "lat": 0.3955234,
+        "lon": -78.4507013
+    },
+    {
+        "idCanton": 79,
+        "idProvincia": 10,
+        "nombreProvincia": "IMBABURA",
+        "nombreCanton": "IBARRA",
+        "lat": 0.515937,
+        "lon": -78.1329448
+    },
+    {
+        "idCanton": 123,
+        "idProvincia": 10,
+        "nombreProvincia": "IMBABURA",
+        "nombreCanton": "OTAVALO",
+        "lat": 0.2227636,
+        "lon": -78.2454274
+    },
+    {
+        "idCanton": 145,
+        "idProvincia": 10,
+        "nombreProvincia": "IMBABURA",
+        "nombreCanton": "PIMAMPIRO",
+        "lat": 0.393298,
+        "lon": -77.9402742
+    },
+    {
+        "idCanton": 180,
+        "idProvincia": 10,
+        "nombreProvincia": "IMBABURA",
+        "nombreCanton": "SAN MIGUEL DE URCUQUI",
+        "lat": 0.5777228,
+        "lon": -78.334909
+    },
+    {
+        "idCanton": 22,
+        "idProvincia": 11,
+        "nombreProvincia": "LOJA",
+        "nombreCanton": "CALVAS",
+        "lat": -4.3403038,
+        "lon": -79.5863868
+    },
+    {
+        "idCanton": 26,
+        "idProvincia": 11,
+        "nombreProvincia": "LOJA",
+        "nombreCanton": "CATAMAYO",
+        "lat": -3.9912144,
+        "lon": -79.403789
+    },
+    {
+        "idCanton": 29,
+        "idProvincia": 11,
+        "nombreProvincia": "LOJA",
+        "nombreCanton": "CELICA",
+        "lat": -4.1648137,
+        "lon": -79.9851762
+    },
+    {
+        "idCanton": 32,
+        "idProvincia": 11,
+        "nombreProvincia": "LOJA",
+        "nombreCanton": "CHAGUARPAMBA",
+        "lat": -3.876542,
+        "lon": -79.6446609
+    },
+    {
+        "idCanton": 64,
+        "idProvincia": 11,
+        "nombreProvincia": "LOJA",
+        "nombreCanton": "ESPINDOLA",
+        "lat": -4.5733073,
+        "lon": -79.4046155
+    },
+    {
+        "idCanton": 69,
+        "idProvincia": 11,
+        "nombreProvincia": "LOJA",
+        "nombreCanton": "GONZANAMA",
+        "lat": -4.1500269,
+        "lon": -79.4688852
+    },
+    {
+        "idCanton": 98,
+        "idProvincia": 11,
+        "nombreProvincia": "LOJA",
+        "nombreCanton": "LOJA",
+        "lat": -3.996845,
+        "lon": -79.2016661
+    },
+    {
+        "idCanton": 101,
+        "idProvincia": 11,
+        "nombreProvincia": "LOJA",
+        "nombreCanton": "MACARA",
+        "lat": -4.3490358,
+        "lon": -79.9154486
+    },
+    {
+        "idCanton": 121,
+        "idProvincia": 11,
+        "nombreProvincia": "LOJA",
+        "nombreCanton": "OLMEDO",
+        "lat": -3.9398418,
+        "lon": -79.604917
+    },
+    {
+        "idCanton": 132,
+        "idProvincia": 11,
+        "nombreProvincia": "LOJA",
+        "nombreCanton": "PALTAS",
+        "lat": -4.0026163,
+        "lon": -79.7006645
+    },
+    {
+        "idCanton": 146,
+        "idProvincia": 11,
+        "nombreProvincia": "LOJA",
+        "nombreCanton": "PINDAL",
+        "lat": -4.1005145,
+        "lon": -80.1388082
+    },
+    {
+        "idCanton": 157,
+        "idProvincia": 11,
+        "nombreProvincia": "LOJA",
+        "nombreCanton": "PUYANGO",
+        "lat": -3.965346,
+        "lon": -80.0735414
+    },
+    {
+        "idCanton": 161,
+        "idProvincia": 11,
+        "nombreProvincia": "LOJA",
+        "nombreCanton": "QUILANGA",
+        "lat": -4.3519474,
+        "lon": -79.3823446
+    },
+    {
+        "idCanton": 195,
+        "idProvincia": 11,
+        "nombreProvincia": "LOJA",
+        "nombreCanton": "SARAGURO",
+        "lat": -3.5269465,
+        "lon": -79.3063889
+    },
+    {
+        "idCanton": 202,
+        "idProvincia": 11,
+        "nombreProvincia": "LOJA",
+        "nombreCanton": "SOZORANGA",
+        "lat": -4.3004608,
+        "lon": -79.7947259
+    },
+    {
+        "idCanton": 220,
+        "idProvincia": 11,
+        "nombreProvincia": "LOJA",
+        "nombreCanton": "ZAPOTILLO",
+        "lat": -4.2341315,
+        "lon": -80.2890856
+    },
+    {
+        "idCanton": 12,
+        "idProvincia": 12,
+        "nombreProvincia": "LOS RIOS",
+        "nombreCanton": "BABA",
+        "lat": -1.6727698,
+        "lon": -79.6615818
+    },
+    {
+        "idCanton": 13,
+        "idProvincia": 12,
+        "nombreProvincia": "LOS RIOS",
+        "nombreCanton": "BABAHOYO",
+        "lat": -1.8762599,
+        "lon": -79.5068917
+    },
+    {
+        "idCanton": 20,
+        "idProvincia": 12,
+        "nombreProvincia": "LOS RIOS",
+        "nombreCanton": "BUENA FE",
+        "lat": -0.7488694,
+        "lon": -79.5296983
+    },
+    {
+        "idCanton": 109,
+        "idProvincia": 12,
+        "nombreProvincia": "LOS RIOS",
+        "nombreCanton": "MOCACHE",
+        "lat": -1.1979,
+        "lon": -79.5512661
+    },
+    {
+        "idCanton": 111,
+        "idProvincia": 12,
+        "nombreProvincia": "LOS RIOS",
+        "nombreCanton": "MONTALVO",
+        "lat": -1.8025855,
+        "lon": -79.348133
+    },
+    {
+        "idCanton": 128,
+        "idProvincia": 12,
+        "nombreProvincia": "LOS RIOS",
+        "nombreCanton": "PALENQUE",
+        "lat": -1.3353343,
+        "lon": -79.7182552
+    },
+    {
+        "idCanton": 152,
+        "idProvincia": 12,
+        "nombreProvincia": "LOS RIOS",
+        "nombreCanton": "PUEBLOVIEJO",
+        "lat": -1.5368546,
+        "lon": -79.5474126
+    },
+    {
+        "idCanton": 159,
+        "idProvincia": 12,
+        "nombreProvincia": "LOS RIOS",
+        "nombreCanton": "QUEVEDO",
+        "lat": -1.0669701,
+        "lon": -79.4776812
+    },
+    {
+        "idCanton": 163,
+        "idProvincia": 12,
+        "nombreProvincia": "LOS RIOS",
+        "nombreCanton": "QUINSALOMA",
+        "lat": -1.1460552,
+        "lon": -79.3468998
+    },
+    {
+        "idCanton": 213,
+        "idProvincia": 12,
+        "nombreProvincia": "LOS RIOS",
+        "nombreCanton": "URDANETA",
+        "lat": -1.5680203,
+        "lon": -79.3769672
+    },
+    {
+        "idCanton": 214,
+        "idProvincia": 12,
+        "nombreProvincia": "LOS RIOS",
+        "nombreCanton": "VALENCIA",
+        "lat": -0.7696521,
+        "lon": -79.3211355
+    },
+    {
+        "idCanton": 215,
+        "idProvincia": 12,
+        "nombreProvincia": "LOS RIOS",
+        "nombreCanton": "VENTANAS",
+        "lat": -1.3253915,
+        "lon": -79.3351558
+    },
+    {
+        "idCanton": 216,
+        "idProvincia": 12,
+        "nombreProvincia": "LOS RIOS",
+        "nombreCanton": "VINCES",
+        "lat": -1.5235263,
+        "lon": -79.766045
+    },
+    {
+        "idCanton": 0,
+        "idProvincia": 13,
+        "nombreProvincia": "MANABI",
+        "nombreCanton": "24 DE MAYO",
+        "lat": -1.3842713,
+        "lon": -80.3391512
+    },
+    {
+        "idCanton": 19,
+        "idProvincia": 13,
+        "nombreProvincia": "MANABI",
+        "nombreCanton": "BOLIVAR",
+        "lat": -0.9257744,
+        "lon": -80.0173961
+    },
+    {
+        "idCanton": 38,
+        "idProvincia": 13,
+        "nombreProvincia": "MANABI",
+        "nombreCanton": "CHONE",
+        "lat": -0.3828099,
+        "lon": -80.0721599
+    },
+    {
+        "idCanton": 52,
+        "idProvincia": 13,
+        "nombreProvincia": "MANABI",
+        "nombreCanton": "EL CARMEN",
+        "lat": -0.4809541,
+        "lon": -79.5741548
+    },
+    {
+        "idCanton": 65,
+        "idProvincia": 13,
+        "nombreProvincia": "MANABI",
+        "nombreCanton": "FLAVIO ALFARO",
+        "lat": -0.3242859,
+        "lon": -79.844538
+    },
+    {
+        "idCanton": 82,
+        "idProvincia": 13,
+        "nombreProvincia": "MANABI",
+        "nombreCanton": "JAMA",
+        "lat": -0.2149489,
+        "lon": -80.2295834
+    },
+    {
+        "idCanton": 83,
+        "idProvincia": 13,
+        "nombreProvincia": "MANABI",
+        "nombreCanton": "JARAMIJO",
+        "lat": -0.9743883,
+        "lon": -80.6134583
+    },
+    {
+        "idCanton": 84,
+        "idProvincia": 13,
+        "nombreProvincia": "MANABI",
+        "nombreCanton": "JIPIJAPA",
+        "lat": -1.5158193,
+        "lon": -80.6124982
+    },
+    {
+        "idCanton": 85,
+        "idProvincia": 13,
+        "nombreProvincia": "MANABI",
+        "nombreCanton": "JUNIN",
+        "lat": -0.9394745,
+        "lon": -80.2054147
+    },
+    {
+        "idCanton": 103,
+        "idProvincia": 13,
+        "nombreProvincia": "MANABI",
+        "nombreCanton": "MANTA",
+        "lat": -0.9486443,
+        "lon": -80.7190822
+    },
+    {
+        "idCanton": 112,
+        "idProvincia": 13,
+        "nombreProvincia": "MANABI",
+        "nombreCanton": "MONTECRISTI",
+        "lat": -1.1149624,
+        "lon": -80.6775801
+    },
+    {
+        "idCanton": 121,
+        "idProvincia": 13,
+        "nombreProvincia": "MANABI",
+        "nombreCanton": "OLMEDO",
+        "lat": -1.3695213,
+        "lon": -80.2144867
+    },
+    {
+        "idCanton": 126,
+        "idProvincia": 13,
+        "nombreProvincia": "MANABI",
+        "nombreCanton": "PAJAN",
+        "lat": -1.7040791,
+        "lon": -80.4212975
+    },
+    {
+        "idCanton": 139,
+        "idProvincia": 13,
+        "nombreProvincia": "MANABI",
+        "nombreCanton": "PEDERNALES",
+        "lat": 0.0693259,
+        "lon": -79.8451737
+    },
+    {
+        "idCanton": 144,
+        "idProvincia": 13,
+        "nombreProvincia": "MANABI",
+        "nombreCanton": "PICHINCHA",
+        "lat": -0.896125,
+        "lon": -79.8054013
+    },
+    {
+        "idCanton": 150,
+        "idProvincia": 13,
+        "nombreProvincia": "MANABI",
+        "nombreCanton": "PORTOVIEJO",
+        "lat": -1.05282,
+        "lon": -80.4534134
+    },
+    {
+        "idCanton": 153,
+        "idProvincia": 13,
+        "nombreProvincia": "MANABI",
+        "nombreCanton": "PUERTO LOPEZ",
+        "lat": -1.5440814,
+        "lon": -80.744524
+    },
+    {
+        "idCanton": 167,
+        "idProvincia": 13,
+        "nombreProvincia": "MANABI",
+        "nombreCanton": "ROCAFUERTE",
+        "lat": -0.9032437,
+        "lon": -80.4012121
+    },
+    {
+        "idCanton": 183,
+        "idProvincia": 13,
+        "nombreProvincia": "MANABI",
+        "nombreCanton": "SAN VICENTE",
+        "lat": -0.4373946,
+        "lon": -80.3761409
+    },
+    {
+        "idCanton": 184,
+        "idProvincia": 13,
+        "nombreProvincia": "MANABI",
+        "nombreCanton": "SANTA ANA",
+        "lat": -1.1944701,
+        "lon": -80.2631268
+    },
+    {
+        "idCanton": 203,
+        "idProvincia": 13,
+        "nombreProvincia": "MANABI",
+        "nombreCanton": "SUCRE",
+        "lat": -0.7326786,
+        "lon": -80.4199056
+    },
+    {
+        "idCanton": 211,
+        "idProvincia": 13,
+        "nombreProvincia": "MANABI",
+        "nombreCanton": "TOSAGUA",
+        "lat": -0.7755207,
+        "lon": -80.2577186
+    },
+    {
+        "idCanton": 72,
+        "idProvincia": 14,
+        "nombreProvincia": "MORONA SANTIAGO",
+        "nombreCanton": "GUALAQUIZA",
+        "lat": -3.3277137,
+        "lon": -78.706485
+    },
+    {
+        "idCanton": 77,
+        "idProvincia": 14,
+        "nombreProvincia": "MORONA SANTIAGO",
+        "nombreCanton": "HUAMBOYA",
+        "lat": -1.984084,
+        "lon": -77.9820885
+    },
+    {
+        "idCanton": 96,
+        "idProvincia": 14,
+        "nombreProvincia": "MORONA SANTIAGO",
+        "nombreCanton": "LIMON INDANZA",
+        "lat": -3.0524262,
+        "lon": -78.3180008
+    },
+    {
+        "idCanton": -1,
+        "idProvincia": -1,
+        "nombreProvincia": "MORONA SANTIAGO",
+        "nombreCanton": "LOGRO\u00d0O",
+        "lat": 0.0,
+        "lon": 0.0
+    },
+    {
+        "idCanton": 114,
+        "idProvincia": 14,
+        "nombreProvincia": "MORONA SANTIAGO",
+        "nombreCanton": "MORONA",
+        "lat": -2.4302963,
+        "lon": -77.8803896
+    },
+    {
+        "idCanton": 125,
+        "idProvincia": 14,
+        "nombreProvincia": "MORONA SANTIAGO",
+        "nombreCanton": "PABLO SEXTO",
+        "lat": -1.8408768,
+        "lon": -78.2913469
+    },
+    {
+        "idCanton": 131,
+        "idProvincia": 14,
+        "nombreProvincia": "MORONA SANTIAGO",
+        "nombreCanton": "PALORA",
+        "lat": -1.6981449,
+        "lon": -77.9675269
+    },
+    {
+        "idCanton": 176,
+        "idProvincia": 14,
+        "nombreProvincia": "MORONA SANTIAGO",
+        "nombreCanton": "SAN JUAN BOSCO",
+        "lat": -3.2593812,
+        "lon": -78.3851945
+    },
+    {
+        "idCanton": 191,
+        "idProvincia": 14,
+        "nombreProvincia": "MORONA SANTIAGO",
+        "nombreCanton": "SANTIAGO",
+        "lat": -3.0489448,
+        "lon": -78.006964
+    },
+    {
+        "idCanton": 197,
+        "idProvincia": 14,
+        "nombreProvincia": "MORONA SANTIAGO",
+        "nombreCanton": "SEVILLA DON BOSCO",
+        "lat": -2.3150598,
+        "lon": -78.1037171
+    },
+    {
+        "idCanton": 204,
+        "idProvincia": 14,
+        "nombreProvincia": "MORONA SANTIAGO",
+        "nombreCanton": "SUCUA",
+        "lat": -2.4560109,
+        "lon": -78.1727383
+    },
+    {
+        "idCanton": 207,
+        "idProvincia": 14,
+        "nombreProvincia": "MORONA SANTIAGO",
+        "nombreCanton": "TAISHA",
+        "lat": -2.4406358,
+        "lon": -77.3827259
+    },
+    {
+        "idCanton": 210,
+        "idProvincia": 14,
+        "nombreProvincia": "MORONA SANTIAGO",
+        "nombreCanton": "TIWINTZA",
+        "lat": -2.9813287,
+        "lon": -77.9330421
+    },
+    {
+        "idCanton": 7,
+        "idProvincia": 15,
+        "nombreProvincia": "NAPO",
+        "nombreCanton": "ARCHIDONA",
+        "lat": -0.7160712,
+        "lon": -77.955042
+    },
+    {
+        "idCanton": 24,
+        "idProvincia": 15,
+        "nombreProvincia": "NAPO",
+        "nombreCanton": "CARLOS JULIO AROSEMENA TOLA",
+        "lat": -1.1667592,
+        "lon": -77.9398705
+    },
+    {
+        "idCanton": 53,
+        "idProvincia": 15,
+        "nombreProvincia": "NAPO",
+        "nombreCanton": "EL CHACO",
+        "lat": -0.2442778,
+        "lon": -77.675958
+    },
+    {
+        "idCanton": 160,
+        "idProvincia": 15,
+        "nombreProvincia": "NAPO",
+        "nombreCanton": "QUIJOS",
+        "lat": -0.4546471,
+        "lon": -77.9302954
+    },
+    {
+        "idCanton": 208,
+        "idProvincia": 15,
+        "nombreProvincia": "NAPO",
+        "nombreCanton": "TENA",
+        "lat": -0.9438718,
+        "lon": -78.1083981
+    },
+    {
+        "idCanton": 1,
+        "idProvincia": 16,
+        "nombreProvincia": "ORELLANA",
+        "nombreCanton": "AGUARICO",
+        "lat": -0.9846232,
+        "lon": -75.9891533
+    },
+    {
+        "idCanton": 87,
+        "idProvincia": 16,
+        "nombreProvincia": "ORELLANA",
+        "nombreCanton": "LA JOYA DE LOS SACHAS",
+        "lat": -0.3161424,
+        "lon": -76.8611463
+    },
+    {
+        "idCanton": 100,
+        "idProvincia": 16,
+        "nombreProvincia": "ORELLANA",
+        "nombreCanton": "LORETO",
+        "lat": -0.6471884,
+        "lon": -77.3252738
+    },
+    {
+        "idCanton": 122,
+        "idProvincia": 16,
+        "nombreProvincia": "ORELLANA",
+        "nombreCanton": "ORELLANA",
+        "lat": -0.2935833,
+        "lon": -76.8509417
+    },
+    {
+        "idCanton": 6,
+        "idProvincia": 17,
+        "nombreProvincia": "PASTAZA",
+        "nombreCanton": "ARAJUNO",
+        "lat": -1.3537363,
+        "lon": -76.8441101
+    },
+    {
+        "idCanton": 106,
+        "idProvincia": 17,
+        "nombreProvincia": "PASTAZA",
+        "nombreCanton": "MERA",
+        "lat": -1.4462896,
+        "lon": -78.1161912
+    },
+    {
+        "idCanton": 136,
+        "idProvincia": 17,
+        "nombreProvincia": "PASTAZA",
+        "nombreCanton": "PASTAZA",
+        "lat": -1.9514879,
+        "lon": -76.8497616
+    },
+    {
+        "idCanton": 185,
+        "idProvincia": 17,
+        "nombreProvincia": "PASTAZA",
+        "nombreCanton": "SANTA CLARA",
+        "lat": -1.2561754,
+        "lon": -77.8701277
+    },
+    {
+        "idCanton": 27,
+        "idProvincia": 18,
+        "nombreProvincia": "PICHINCHA",
+        "nombreCanton": "CAYAMBE",
+        "lat": 0.0251586,
+        "lon": -77.9889555
+    },
+    {
+        "idCanton": 105,
+        "idProvincia": 18,
+        "nombreProvincia": "PICHINCHA",
+        "nombreCanton": "MEJIA",
+        "lat": -0.2108769,
+        "lon": -78.5187204
+    },
+    {
+        "idCanton": 141,
+        "idProvincia": 18,
+        "nombreProvincia": "PICHINCHA",
+        "nombreCanton": "PEDRO MONCAYO",
+        "lat": 0.0594616,
+        "lon": -78.2650928
+    },
+    {
+        "idCanton": 142,
+        "idProvincia": 18,
+        "nombreProvincia": "PICHINCHA",
+        "nombreCanton": "PEDRO VICENTE MALDONADO",
+        "lat": 0.1612052,
+        "lon": -79.0400619
+    },
+    {
+        "idCanton": 154,
+        "idProvincia": 18,
+        "nombreProvincia": "PICHINCHA",
+        "nombreCanton": "PUERTO QUITO",
+        "lat": 0.1552999,
+        "lon": -79.2330741
+    },
+    {
+        "idCanton": 164,
+        "idProvincia": 18,
+        "nombreProvincia": "PICHINCHA",
+        "nombreCanton": "QUITO",
+        "lat": -0.2201641,
+        "lon": -78.5123274
+    },
+    {
+        "idCanton": 168,
+        "idProvincia": 18,
+        "nombreProvincia": "PICHINCHA",
+        "nombreCanton": "RUMI\u00d1AHUI",
+        "lat": -0.58595,
+        "lon": -78.507983
+    },
+    {
+        "idCanton": 179,
+        "idProvincia": 18,
+        "nombreProvincia": "PICHINCHA",
+        "nombreCanton": "SAN MIGUEL DE LOS BANCOS",
+        "lat": -0.0188368,
+        "lon": -78.9214659
+    },
+    {
+        "idCanton": 88,
+        "idProvincia": 19,
+        "nombreProvincia": "SANTA ELENA",
+        "nombreCanton": "LA LIBERTAD",
+        "lat": -2.2208117,
+        "lon": -80.9077647
+    },
+    {
+        "idCanton": 170,
+        "idProvincia": 19,
+        "nombreProvincia": "SANTA ELENA",
+        "nombreCanton": "SALINAS",
+        "lat": -2.2612497,
+        "lon": -80.9237973
+    },
+    {
+        "idCanton": 187,
+        "idProvincia": 19,
+        "nombreProvincia": "SANTA ELENA",
+        "nombreCanton": "SANTA ELENA",
+        "lat": -2.2270098,
+        "lon": -80.8576945
+    },
+    {
+        "idCanton": 86,
+        "idProvincia": 20,
+        "nombreProvincia": "SANTO DOMINGO DE LOS TSACHILAS",
+        "nombreCanton": "LA CONCORDIA",
+        "lat": -0.0441108,
+        "lon": -79.462977
+    },
+    {
+        "idCanton": 193,
+        "idProvincia": 20,
+        "nombreProvincia": "SANTO DOMINGO DE LOS TSACHILAS",
+        "nombreCanton": "SANTO DOMINGO",
+        "lat": -0.2475027,
+        "lon": -79.1713171
+    },
+    {
+        "idCanton": 25,
+        "idProvincia": 21,
+        "nombreProvincia": "SUCUMBIOS",
+        "nombreCanton": "CASCALES",
+        "lat": 0.1508313,
+        "lon": -77.2319471
+    },
+    {
+        "idCanton": 47,
+        "idProvincia": 21,
+        "nombreProvincia": "SUCUMBIOS",
+        "nombreCanton": "CUYABENO",
+        "lat": -0.3339338,
+        "lon": -75.7278493
+    },
+    {
+        "idCanton": 68,
+        "idProvincia": 21,
+        "nombreProvincia": "SUCUMBIOS",
+        "nombreCanton": "GONZALO PIZARRO",
+        "lat": 0.1116857,
+        "lon": -77.6398817
+    },
+    {
+        "idCanton": 91,
+        "idProvincia": 21,
+        "nombreProvincia": "SUCUMBIOS",
+        "nombreCanton": "LAGO AGRIO",
+        "lat": 0.1266266,
+        "lon": -76.7575913
+    },
+    {
+        "idCanton": 156,
+        "idProvincia": 21,
+        "nombreProvincia": "SUCUMBIOS",
+        "nombreCanton": "PUTUMAYO",
+        "lat": 0.134031,
+        "lon": -76.1307853
+    },
+    {
+        "idCanton": 198,
+        "idProvincia": 21,
+        "nombreProvincia": "SUCUMBIOS",
+        "nombreCanton": "SHUSHUFINDI",
+        "lat": -0.2885051,
+        "lon": -76.5906945
+    },
+    {
+        "idCanton": 205,
+        "idProvincia": 21,
+        "nombreProvincia": "SUCUMBIOS",
+        "nombreCanton": "SUCUMBIOS",
+        "lat": 0.3973875,
+        "lon": -77.6346795
+    },
+    {
+        "idCanton": 4,
+        "idProvincia": 22,
+        "nombreProvincia": "TUNGURAHUA",
+        "nombreCanton": "AMBATO",
+        "lat": -1.2422413,
+        "lon": -78.6287594
+    },
+    {
+        "idCanton": 17,
+        "idProvincia": 22,
+        "nombreProvincia": "TUNGURAHUA",
+        "nombreCanton": "BA\u00d1OS DE AGUA SANTA",
+        "lat": -1.417407,
+        "lon": -78.4402276
+    },
+    {
+        "idCanton": 31,
+        "idProvincia": 22,
+        "nombreProvincia": "TUNGURAHUA",
+        "nombreCanton": "CEVALLOS",
+        "lat": -1.3549392,
+        "lon": -78.6163995
+    },
+    {
+        "idCanton": 110,
+        "idProvincia": 22,
+        "nombreProvincia": "TUNGURAHUA",
+        "nombreCanton": "MOCHA",
+        "lat": -1.4145909,
+        "lon": -78.7005577
+    },
+    {
+        "idCanton": 137,
+        "idProvincia": 22,
+        "nombreProvincia": "TUNGURAHUA",
+        "nombreCanton": "PATATE",
+        "lat": -1.2831695,
+        "lon": -78.4297644
+    },
+    {
+        "idCanton": 158,
+        "idProvincia": 22,
+        "nombreProvincia": "TUNGURAHUA",
+        "nombreCanton": "QUERO",
+        "lat": -1.430312,
+        "lon": -78.6083243
+    },
+    {
+        "idCanton": 182,
+        "idProvincia": 22,
+        "nombreProvincia": "TUNGURAHUA",
+        "nombreCanton": "SAN PEDRO DE PELILEO",
+        "lat": -1.3301293,
+        "lon": -78.5450738
+    },
+    {
+        "idCanton": 192,
+        "idProvincia": 22,
+        "nombreProvincia": "TUNGURAHUA",
+        "nombreCanton": "SANTIAGO DE PILLARO",
+        "lat": -1.1163587,
+        "lon": -78.4528449
+    },
+    {
+        "idCanton": 209,
+        "idProvincia": 22,
+        "nombreProvincia": "TUNGURAHUA",
+        "nombreCanton": "TISALEO",
+        "lat": -1.3625151,
+        "lon": -78.6787867
+    },
+    {
+        "idCanton": 30,
+        "idProvincia": 23,
+        "nombreProvincia": "ZAMORA CHINCHIPE",
+        "nombreCanton": "CENTINELA DEL CONDOR",
+        "lat": -3.9449298,
+        "lon": -78.7334721
+    },
+    {
+        "idCanton": 37,
+        "idProvincia": 23,
+        "nombreProvincia": "ZAMORA CHINCHIPE",
+        "nombreCanton": "CHINCHIPE",
+        "lat": -4.8539946,
+        "lon": -79.1373945
+    },
+    {
+        "idCanton": 56,
+        "idProvincia": 23,
+        "nombreProvincia": "ZAMORA CHINCHIPE",
+        "nombreCanton": "EL PANGUI",
+        "lat": -3.6253506,
+        "lon": -78.5473049
+    },
+    {
+        "idCanton": 117,
+        "idProvincia": 23,
+        "nombreProvincia": "ZAMORA CHINCHIPE",
+        "nombreCanton": "NANGARITZA",
+        "lat": -4.311678,
+        "lon": -78.7965696
+    },
+    {
+        "idCanton": 127,
+        "idProvincia": 23,
+        "nombreProvincia": "ZAMORA CHINCHIPE",
+        "nombreCanton": "PALANDA",
+        "lat": -4.5210453,
+        "lon": -79.1267896
+    },
+    {
+        "idCanton": 134,
+        "idProvincia": 23,
+        "nombreProvincia": "ZAMORA CHINCHIPE",
+        "nombreCanton": "PAQUISHA",
+        "lat": -3.96234,
+        "lon": -78.609377
+    },
+    {
+        "idCanton": 217,
+        "idProvincia": 23,
+        "nombreProvincia": "ZAMORA CHINCHIPE",
+        "nombreCanton": "YACUAMBI",
+        "lat": -3.5848813,
+        "lon": -78.9391162
+    },
+    {
+        "idCanton": 218,
+        "idProvincia": 23,
+        "nombreProvincia": "ZAMORA CHINCHIPE",
+        "nombreCanton": "YANTZAZA",
+        "lat": -3.7146811,
+        "lon": -78.7376344
+    },
+    {
+        "idCanton": 219,
+        "idProvincia": 23,
+        "nombreProvincia": "ZAMORA CHINCHIPE",
+        "nombreCanton": "ZAMORA",
+        "lat": -4.0042008,
+        "lon": -78.9577754
+    },
+    {
+        "idCanton": -1,
+        "idProvincia": -1,
+        "nombreProvincia": "ZONA NO DELIMITADA",
+        "nombreCanton": "EL PIEDRERO",
+        "lat": 0.0,
+        "lon": 0.0
+    },
+    {
+        "idCanton": 92,
+        "idProvincia": 24,
+        "nombreProvincia": "ZONA NO DELIMITADA",
+        "nombreCanton": "LAS GOLONDRINAS",
+        "lat": 0.3226599,
+        "lon": -79.2121822
+    }
+]

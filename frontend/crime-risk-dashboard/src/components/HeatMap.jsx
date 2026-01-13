@@ -3,74 +3,84 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet.heat";
 
-export default function HeatMap({ provincia }) {
+// Icono fix para Leaflet en React (a veces los marcadores no cargan sin esto)
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+
+let DefaultIcon = L.icon({
+  iconUrl: icon,
+  shadowUrl: iconShadow,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41]
+});
+L.Marker.prototype.options.icon = DefaultIcon;
+
+export default function HeatMap({ data, center }) {
   const mapRef = useRef(null);
   const heatLayerRef = useRef(null);
 
-  // Coordenadas y zoom por provincia
-  const provinceCenter = {
-    Pichincha: { coords: [-0.1807, -78.4678], zoom: 10 },
-    Guayas: { coords: [-2.1700, -79.9000], zoom: 10 },
-    Manabí: { coords: [-0.9500, -80.7300], zoom: 9 },
-  };
-
-  // Datos de calor
-  const heatDataByProvince = {
-    Pichincha: [
-      [-0.1807, -78.4678, 0.9],
-      [-0.2000, -78.4800, 0.6],
-    ],
-    Guayas: [
-      [-2.1700, -79.9000, 0.7],
-      [-2.1900, -79.9300, 0.8],
-    ],
-    Manabí: [
-      [-0.9500, -80.7300, 0.5],
-      [-1.0500, -80.4500, 0.9],
-    ],
-  };
-
-  // Inicializar mapa solo una vez
+  // 1. Inicializar mapa (Solo una vez)
   useEffect(() => {
     if (!mapRef.current) {
+      // Coordenadas iniciales (Centro de Ecuador)
       mapRef.current = L.map("map").setView([-1.8312, -78.1834], 6);
 
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: "© OpenStreetMap contributors",
       }).addTo(mapRef.current);
     }
+
+    // Cleanup al desmontar
+    return () => {
+      if (mapRef.current) {
+        mapRef.current.remove();
+        mapRef.current = null;
+      }
+    };
   }, []);
 
-  // Actualizar heatmap y zoom cuando cambia la provincia
+  // 2. Actualizar Heatmap cuando cambia 'data'
   useEffect(() => {
     const map = mapRef.current;
-
     if (!map) return;
 
-    // Eliminar capa anterior si existe
+    // A. Limpiar capa anterior
     if (heatLayerRef.current) {
       map.removeLayer(heatLayerRef.current);
+      heatLayerRef.current = null;
     }
 
-    const heatData = heatDataByProvince[provincia] || [];
+    // B. Si hay datos, crear nueva capa
+    if (data && data.length > 0) {
+      console.log(`Renderizando ${data.length} puntos de calor en el mapa.`);
 
-    if (heatData.length > 0) {
-      heatLayerRef.current = L.heatLayer(heatData, {
-        radius: 50,
-        blur: 20,
-        maxZoom: 10
+      heatLayerRef.current = L.heatLayer(data, {
+        radius: 35,      // Radio del punto de calor
+        blur: 20,        // Difuminado
+        maxZoom: 14,     // Zoom máximo para intensidad máxima
+        max: 1.0,        // Intensidad máxima esperada (nuestro backend manda 0.0 a 1.0)
+        gradient: {      // Gradiente de colores personalizado (Verde -> Rojo)
+          0.1: 'blue',
+          0.4: 'lime',
+          0.6: 'yellow',
+          0.9: 'red'
+        }
       }).addTo(map);
-
-      // Centrar y hacer zoom en la provincia
-      const centerInfo = provinceCenter[provincia];
-      if (centerInfo) {
-        map.setView(centerInfo.coords, centerInfo.zoom);
-      }
-    } else {
-      // Si no hay datos, mostrar todo Ecuador
-      map.setView([-1.8312, -78.1834], 6);
     }
-  }, [provincia]);
+  }, [data]);
 
-  return <div id="map" style={{ width: "100%", height: "100vh" }} />;
+  // 3. Actualizar Vista (Centro) cuando cambia 'center'
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !center) return;
+
+    // Animación suave hacia la nueva zona seleccionada
+    // Zoom 12 es un buen nivel para ver un cantón/ciudad
+    map.flyTo(center, 12, {
+      duration: 1.5 // segundos de animación
+    });
+
+  }, [center]);
+
+  return <div id="map" style={{ width: "100%", height: "100%" }} />;
 }

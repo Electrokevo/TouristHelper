@@ -1,0 +1,3 @@
+/home/kevin/Documents/projects/cpp/TouristHelper/Server/CMakeFiles/TouristBackend.dir
+/home/kevin/Documents/projects/cpp/TouristHelper/Server/CMakeFiles/edit_cache.dir
+/home/kevin/Documents/projects/cpp/TouristHelper/Server/CMakeFiles/rebuild_cache.dir
