@@ -1,0 +1,335 @@
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include <map>
+#include <string>
+#include <algorithm>
+#include <set>
+#include <cmath>
+
+// Librerías de IA
+#include <torch/torch.h>
+#include <opencv2/opencv.hpp>
+#include <opencv2/ml.hpp>
+
+// ============================================================
+// 1) Estructuras de Datos
+// ============================================================
+
+struct RawEvent {
+    std::string zona;
+    std::string servicio; // Tipo de actp delictivo
+    long fecha_int;       // YYYYMMDD como entero para ordenar fácil
+};
+
+// Estructura para datos agrupados (Zona + Fecha -> Conteos por Tipo)
+struct DailyData {
+    std::string zona;
+    long fecha;
+    std::map<std::string, int> conteos_por_tipo;
+    int count_total = 0;
+    int target = 0; // 1 si mañana hay delito, 0 si no
+};
+
+// Constantes globales
+const int TIMESTEPS = 30;
+const int TARGET_THRESHOLD = 1;
+const int EMB_DIM = 32;
+
+// ============================================================
+// 2) LSTM Model (LibTorch)
+// ============================================================
+
+struct LSTMFeatureExtractor : torch::nn::Module {
+    torch::nn::LSTM lstm1{nullptr}, lstm2{nullptr};
+    torch::nn::Linear embedding_layer{nullptr};
+    torch::nn::Linear output_layer{nullptr};
+    torch::nn::Dropout dropout{nullptr};
+
+    LSTMFeatureExtractor(int input_dim, int emb_dim) {
+        // LSTM 1: input -> 64
+        lstm1 = register_module("lstm1", torch::nn::LSTM(torch::nn::LSTMOptions(input_dim, 64).batch_first(true)));
+        // LSTM 2: 64 -> 32
+        lstm2 = register_module("lstm2", torch::nn::LSTM(torch::nn::LSTMOptions(64, 32).batch_first(true)));
+        
+        dropout = register_module("dropout", torch::nn::Dropout(0.2));
+
+        // Capa densa que será nuestro "Embedding" (32 -> emb_dim)
+        embedding_layer = register_module("embedding_layer", torch::nn::Linear(32, emb_dim));
+        
+        // Capa de salida para entrenamiento (emb_dim -> 1)
+        output_layer = register_module("output_layer", torch::nn::Linear(emb_dim, 1));
+    }
+
+    // Forward completo (para entrenamiento)
+    torch::Tensor forward(torch::Tensor x) {
+        auto out = std::get<0>(lstm1->forward(x)); // LSTM output
+        out = dropout->forward(out);
+        
+        // Tomamos solo el último paso de tiempo para la segunda LSTM
+        // Nota: En PyTorch LSTM devuelve secuencia completa, aquí simplificamos tomando el último estado
+        // Para replicar Keras "return_sequences=False", tomamos el último timestep del output
+        auto out2 = std::get<0>(lstm2->forward(out)); 
+        auto last_step = out2.index({torch::indexing::Slice(), -1, torch::indexing::Slice()}); // [batch, features]
+        
+        last_step = dropout->forward(last_step);
+        
+        auto emb = torch::relu(embedding_layer->forward(last_step));
+        auto pred = torch::sigmoid(output_layer->forward(emb));
+        return pred;
+    }
+
+    // Método para solo extraer embeddings
+    torch::Tensor get_embedding(torch::Tensor x) {
+        auto out = std::get<0>(lstm1->forward(x));
+        auto out2 = std::get<0>(lstm2->forward(out));
+        auto last_step = out2.index({torch::indexing::Slice(), -1, torch::indexing::Slice()});
+        
+        return torch::relu(embedding_layer->forward(last_step));
+    }
+};
+
+// ============================================================
+// 3) Utilidades de Carga de Datos (Reemplazo de Pandas)
+// ============================================================
+
+std::vector<RawEvent> load_csv(const std::string& path) {
+    std::vector<RawEvent> events;
+    std::ifstream file(path);
+    std::string line;
+    
+    // Asumiendo formato del CSV: headers primero
+    // Indíces basados en tu CSV: Parroquia(3), Servicio(4), periodoDia(6) 
+    // * Ajusta estos índices según tu CSV real si cambian *
+    
+    if (!file.is_open()) {
+        std::cerr << "Error abriendo archivo" << std::endl;
+        return events;
+    }
+
+    std::getline(file, line); // Skip header
+
+    while (std::getline(file, line)) {
+        std::stringstream ss(line);
+        std::string cell;
+        std::vector<std::string> row;
+        
+        // Parseo simple por comas
+        while (std::getline(ss, cell, ',')) {
+            row.push_back(cell);
+        }
+
+        if (row.size() > 6) {
+            RawEvent e;
+            e.zona = row[3];     // Parroquia
+            e.servicio = row[4]; // Servicio
+            try {
+                // Limpiar ".0" si viene como float string
+                std::string date_str = row[6];
+                size_t decimal = date_str.find('.');
+                if (decimal != std::string::npos) date_str = date_str.substr(0, decimal);
+                e.fecha_int = std::stol(date_str);
+                
+                events.push_back(e);
+            } catch (...) { continue; }
+        }
+    }
+    return events;
+}
+
+// Procesa los datos crudos a series temporales (El "GroupBy" y "Pivot" de Pandas)
+void process_data(const std::vector<RawEvent>& events, 
+                  std::vector<std::string>& all_types,
+                  std::vector<DailyData>& dataset_flat,
+                  std::vector<torch::Tensor>& X_lstm,
+                  std::vector<float>& y_lstm,
+                  std::vector<DailyData>& meta_data) {
+    
+    // 1. Identificar todos los tipos únicos y zonas
+    std::set<std::string> types_set;
+    std::set<std::string> zones_set;
+    for(const auto& e : events) {
+        types_set.insert(e.servicio);
+        zones_set.insert(e.zona);
+    }
+    all_types.assign(types_set.begin(), types_set.end());
+    
+    // 2. Agrupar: Mapa [Zona][Fecha][Tipo] -> Conteo
+    std::map<std::string, std::map<long, std::map<std::string, int>>> grouped;
+    for(const auto& e : events) {
+        grouped[e.zona][e.fecha_int][e.servicio]++;
+    }
+
+    // 3. Aplanar y rellenar días faltantes (simplificado: solo días presentes + ordenación)
+    // Para hacerlo perfecto como Pandas `resample('D')`, necesitarías iterar fechas calendario.
+    // Aquí iteramos por los días que existen en los datos para simplificar el ejemplo C++.
+    
+    for (const auto& zone_pair : grouped) {
+        std::string zona = zone_pair.first;
+        auto& date_map = zone_pair.second;
+        
+        std::vector<DailyData> zone_sequence;
+        
+        for (auto& date_pair : date_map) {
+            long fecha = date_pair.first;
+            auto& type_counts = date_pair.second;
+            
+            DailyData day;
+            day.zona = zona;
+            day.fecha = fecha;
+            day.conteos_por_tipo = type_counts;
+            
+            int total = 0;
+            for(const auto& t : all_types) total += type_counts[t];
+            day.count_total = total;
+            
+            zone_sequence.push_back(day);
+        }
+
+        // 4. Calcular Targets (Shift -1)
+        for(size_t i=0; i < zone_sequence.size() - 1; ++i) {
+            if (zone_sequence[i+1].count_total >= TARGET_THRESHOLD) {
+                zone_sequence[i].target = 1;
+            } else {
+                zone_sequence[i].target = 0;
+            }
+        }
+
+        // 5. Crear ventanas deslizantes para LSTM (X_seq)
+        // Necesitamos vectorizar los conteos según el orden de `all_types`
+        int num_features = all_types.size();
+        
+        if (zone_sequence.size() > TIMESTEPS) {
+            for (size_t i = TIMESTEPS; i < zone_sequence.size() - 1; ++i) {
+                // Crear ventana (tensor) [TIMESTEPS, num_features]
+                torch::Tensor window = torch::zeros({TIMESTEPS, num_features});
+                
+                for (int t = 0; t < TIMESTEPS; ++t) {
+                    // Día dentro de la ventana: i - TIMESTEPS + t
+                    const auto& past_day = zone_sequence[i - TIMESTEPS + t];
+                    for (int f = 0; f < num_features; ++f) {
+                        std::string tipo = all_types[f];
+                        if (past_day.conteos_por_tipo.count(tipo)) {
+                            window[t][f] = (float)past_day.conteos_por_tipo.at(tipo);
+                        }
+                    }
+                }
+                
+                X_lstm.push_back(window);
+                y_lstm.push_back((float)zone_sequence[i].target);
+                meta_data.push_back(zone_sequence[i]); // Guardar metadata para el RF
+            }
+        }
+    }
+}
+
+// ============================================================
+// 4) Main Pipeline
+// ============================================================
+
+int main() {
+    std::cout << "1) Cargando datos..." << std::endl;
+    auto raw_events = load_csv("mini_datos_202112_202510_v3.csv");
+    std::cout << "Eventos cargados: " << raw_events.size() << std::endl;
+
+    std::vector<std::string> all_types;
+    std::vector<DailyData> dataset_flat; // No usado directamente, lógica interna
+    
+    // Contenedores para tensores
+    std::vector<torch::Tensor> X_list;
+    std::vector<float> y_list;
+    std::vector<DailyData> meta_data; // Para saber fecha/zona de cada muestra
+
+    std::cout << "2) Procesando series temporales..." << std::endl;
+    process_data(raw_events, all_types, dataset_flat, X_list, y_list, meta_data);
+
+    if(X_list.empty()) {
+        std::cerr << "No hay suficientes datos para crear secuencias." << std::endl;
+        return -1;
+    }
+
+    // Convertir lista de tensores a un solo Tensor Batch
+    auto X_tensor = torch::stack(X_list); // [N, TIMESTEPS, Features]
+    auto y_tensor = torch::tensor(y_list).view({-1, 1}); // [N, 1]
+
+    std::cout << "Tensor X shape: " << X_tensor.sizes() << std::endl;
+    std::cout << "Tensor y shape: " << y_tensor.sizes() << std::endl;
+
+    // ---------------------------------------------------------
+    // 3) Entrenamiento LSTM (LibTorch)
+    // ---------------------------------------------------------
+    std::cout << "3) Entrenando LSTM..." << std::endl;
+    int num_features = all_types.size();
+    LSTMFeatureExtractor lstm_model(num_features, EMB_DIM);
+    
+    torch::optim::Adam optimizer(lstm_model.parameters(), torch::optim::AdamOptions(0.001));
+
+    // Loop simple de entrenamiento
+    lstm_model.train();
+    for (int epoch = 0; epoch < 10; ++epoch) {
+        optimizer.zero_grad();
+        auto prediction = lstm_model.forward(X_tensor);
+        auto loss = torch::binary_cross_entropy(prediction, y_tensor);
+        loss.backward();
+        optimizer.step();
+        
+        if (epoch % 2 == 0)
+            std::cout << "Epoch " << epoch << " Loss: " << loss.item<float>() << std::endl;
+    }
+
+    // ---------------------------------------------------------
+    // 4) Extraer Embeddings
+    // ---------------------------------------------------------
+    std::cout << "4) Extrayendo embeddings..." << std::endl;
+    lstm_model.eval();
+    torch::NoGradGuard no_grad;
+    auto embeddings = lstm_model.get_embedding(X_tensor); // [N, EMB_DIM]
+
+    // ---------------------------------------------------------
+    // 5) Preparar datos para Random Forest (OpenCV)
+    // ---------------------------------------------------------
+    std::cout << "5) Preparando Random Forest..." << std::endl;
+    
+    // OpenCV ML requiere matrices cv::Mat de float
+    int n_samples = embeddings.size(0);
+    int n_features_rf = EMB_DIM; 
+    
+    cv::Mat rf_train_data(n_samples, n_features_rf, CV_32F);
+    cv::Mat rf_labels(n_samples, 1, CV_32S); // Int para clasificación
+
+    // Copiar datos de Tensor a cv::Mat
+    // Nota: Esto se puede optimizar con punteros directos, pero lo hacemos seguro aquí
+    auto emb_accessor = embeddings.accessor<float, 2>();
+    
+    for (int i = 0; i < n_samples; ++i) {
+        for (int j = 0; j < n_features_rf; ++j) {
+            rf_train_data.at<float>(i, j) = emb_accessor[i][j];
+        }
+        // Features extra (Calendario) se añadirían aquí como columnas extra
+        
+        rf_labels.at<int>(i, 0) = (int)y_list[i];
+    }
+
+    // ---------------------------------------------------------
+    // 6) Entrenar Random Forest
+    // ---------------------------------------------------------
+    std::cout << "6) Entrenando Random Forest..." << std::endl;
+    
+    auto rf = cv::ml::RTrees::create();
+    rf->setMaxDepth(10);
+    rf->setMinSampleCount(10);
+    rf->setTermCriteria(cv::TermCriteria(cv::TermCriteria::MAX_ITER + cv::TermCriteria::EPS, 100, 0.01));
+    
+    // Configurar como clasificación
+    rf->train(cv::ml::TrainData::create(rf_train_data, cv::ml::ROW_SAMPLE, rf_labels));
+
+    std::cout << "Pipeline finalizado. Modelo RF entrenado." << std::endl;
+    
+    // Ejemplo de predicción simple con el primer dato
+    cv::Mat sample = rf_train_data.row(0);
+    float prediccion = rf->predict(sample);
+    std::cout << "Predicción muestra 0: " << prediccion << " (Real: " << rf_labels.at<int>(0) << ")" << std::endl;
+
+    return 0;
+}
