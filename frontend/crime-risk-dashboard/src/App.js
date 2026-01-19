@@ -1,116 +1,117 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from 'react';
+import SelectProvince from './SelectProvince'; // Tu componente selector
+import HeatMap from './HeatMap';             // Tu componente mapa
+import zonasData from './zonas_mapeadas.json'; // Tu JSON de coordenadas
 import './App.css';
-import ProbabilityChart from "./components/Probabilities";
-import HeatMap from "./components/HeatMap";
-import LocationSelector from "./components/SelectProvince"; // Asegúrate de importar el nuevo selector
 
 function App() {
-    // Estados para guardar la selección del usuario
-    const [provincia, setProvincia] = useState("");
-    const [canton, setCanton] = useState("");
-    const [currentStats, setCurrentStats] = useState([]);
-    // Estado para guardar los puntos que vienen del backend C++
-    const [mapData, setMapData] = useState([]);
+    // Estado para el mapa
+    const [mapCenter, setMapCenter] = useState([-1.8312, -78.1834]); // Centro Ecuador
+    const [heatData, setHeatData] = useState([]); // Puntos de calor [[lat, lon, intensidad]]
 
-    // ESTA ES LA FUNCIÓN QUE FALTABA (La que corrige el error "is not a function")
-    const handleLocationChange = (nuevaProv, nuevoCant) => {
-        console.log("Ubicación cambiada:", nuevaProv, nuevoCant);
-        setProvincia(nuevaProv);
-        setCanton(nuevoCant);
-        setCurrentStats([]);
+    // Estado para resultados y UI
+    const [resultado, setResultado] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
+
+    // Función que llama SelectProvince cuando el usuario elige un cantón
+    const handleLocationChange = async (provincia, canton) => {
+        // Si se resetea el cantón, limpiamos resultados
+        if (!canton) {
+            setResultado(null);
+            setHeatData([]);
+            return;
+        }
+
+        setLoading(true);
+        setError("");
+
+        try {
+            // 1. Buscar coordenadas en tu JSON local
+            const zonaInfo = zonasData.find(z =>
+                z.nombreCanton === canton && z.nombreProvincia === provincia
+            );
+
+            if (!zonaInfo) {
+                throw new Error("Coordenadas no encontradas para esta zona.");
+            }
+
+            // 2. Consultar al Backend
+            const zonaQuery = canton.toUpperCase();
+            const response = await fetch(`http://localhost:8080/predict?zona=${zonaQuery}`);
+
+            if (!response.ok) throw new Error("Error conectando con el servidor.");
+
+            const data = await response.json();
+            setResultado(data); // Guardamos la respuesta del server (nivel, mensaje, etc)
+
+            // 3. Configurar el Mapa y el Heatmap
+            // Intensidad: ALTO = 1.0 (Rojo), BAJO = 0.2 (Azul/Verde)
+            const intensidad = data.nivel === "ALTO" ? 1.0 : 0.2;
+
+            // Actualizamos centro del mapa
+            setMapCenter([zonaInfo.lat, zonaInfo.lon]);
+
+            // Ponemos el punto de calor
+            setHeatData([
+                [zonaInfo.lat, zonaInfo.lon, intensidad]
+            ]);
+
+        } catch (err) {
+            console.error(err);
+            setError("No se pudo analizar la zona. Intenta con otra.");
+            setHeatData([]);
+        } finally {
+            setLoading(false);
+        }
     };
 
-    // Efecto: Se ejecuta cada vez que cambia la provincia o el cantón
-    useEffect(() => {
-        // Solo hacemos la petición si tenemos datos válidos
-        if (provincia && canton) {
-            const url = `http://localhost:8000/riesgo?provincia=${encodeURIComponent(provincia)}&canton=${encodeURIComponent(canton)}`;
-
-            console.log("Consultando backend C++:", url);
-
-            fetch(url)
-                .then((res) => res.json())
-                .then((json) => {
-                    const heatPoints = json.map((p) => [
-                        p.latitud, p.longitud, p.riesgo
-                    ]);
-                    setMapData(heatPoints);
-
-                    // 2. Datos para la barra lateral
-                    // Como filtramos por cantón, tomamos el primer resultado (o el único)
-                    if (json.length > 0 && json[0].desglose) {
-                        setCurrentStats(json[0].desglose);
-                    }
-                    // Transformamos la respuesta del backend al formato que necesita el mapa [lat, lon, intensidad]
-                    console.log(heatPoints)
-                })
-                .catch((err) => console.error("Error cargando datos del backend:", err));
-        }
-    }, [provincia, canton]); // <- Dependencias del useEffect
-
     return (
-        <div style={{ display: "flex", height: "100vh", overflow: "hidden" }}>
+        <div className="app-layout">
+            {/* PANEL LATERAL (IZQUIERDA) */}
+            <div className="sidebar">
+                <header className="sidebar-header">
+                    <h1>🛡️ TouristHelper</h1>
+                    <p>Predicción de Seguridad</p>
+                </header>
 
-            {/* --- PANEL LATERAL --- */}
-            <div
-                style={{
-                    width: "300px",
-                    background: "#f5f5f5",
-                    borderRight: "1px solid #ddd",
-                    padding: "20px",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "20px"
-                }}
-            >
-                <h2 style={{ margin: 0, color: "#333" }}>TouristHelper 🇪🇨</h2>
-                <p style={{ fontSize: "14px", color: "#666" }}>
-                    Sistema predictivo de riesgo delictivo basado en IA.
-                </p>
+                <div className="control-panel">
+                    <h3>Selecciona tu Destino</h3>
+                    {/* Usamos tu componente SelectProvince */}
+                    <SelectProvince onLocationChange={handleLocationChange} />
 
-                {/* Aquí pasamos la función handleLocationChange al hijo */}
-                <LocationSelector onLocationChange={handleLocationChange} />
-
-                {/* GRÁFICA DE BARRAS (Solo aparece si hay datos) */}
-                {currentStats.length > 0 ? (
-                    <ProbabilityChart data={currentStats} />
-                ) : (
-                    canton && <p style={{fontSize: "12px", color: "#999", textAlign: "center"}}>Cargando análisis...</p>
-                )}
-
-                {/* Debug visual para confirmar que el estado cambia */}
-                <div style={{ fontSize: "12px", color: "#888", marginTop: "auto" }}>
-                    Estado Actual:<br/>
-                    Prov: {provincia || "-"}<br/>
-                    Cant: {canton || "-"}
+                    {error && <div className="error-msg">{error}</div>}
+                    {loading && <div className="loading-msg">Analizando datos históricos...</div>}
                 </div>
-            </div>
 
-            {/* --- CONTENIDO PRINCIPAL (MAPA) --- */}
-            <div style={{ flexGrow: 1, position: "relative" }}>
-                {/* Pasamos los datos (puntos) al mapa, no solo el nombre de la provincia */}
-                <HeatMap data={mapData} center={mapData.length > 0 ? [mapData[0][0], mapData[0][1]] : null} />
+                {/* TARJETA DE RESULTADOS */}
+                {resultado && !loading && (
+                    <div className={`result-card ${resultado.nivel === 'ALTO' ? 'risk-high' : 'risk-low'}`}>
+                        <h3>{resultado.zona}</h3>
 
-                {/* Mensaje flotante si no hay datos */}
-                {mapData.length === 0 && (
-                    <div style={{
-                        position: "absolute",
-                        top: "50%",
-                        left: "50%",
-                        transform: "translate(-50%, -50%)",
-                        background: "rgba(255,255,255,0.9)",
-                        padding: "20px",
-                        borderRadius: "10px",
-                        boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
-                        textAlign: "center"
-                    }}>
-                        <h3>Selecciona una zona</h3>
-                        <p>Elige una provincia y cantón para ver el análisis de riesgo.</p>
+                        <div className="badge-container">
+                            <span className="risk-badge">RIESGO {resultado.nivel}</span>
+                        </div>
+
+                        <p className="prediction-msg">
+                            {resultado.mensaje}
+                        </p>
+
+                        <div className="meta-info">
+                            <small>📅 Datos actualizados al: {resultado.fecha_datos}</small>
+                            <br/>
+                            <small>🤖 Probabilidad del modelo: {resultado.riesgo_predicho}</small>
+                        </div>
                     </div>
                 )}
+            </div>
+
+            {/* MAPA (DERECHA) */}
+            <div className="map-container">
+                {/* Usamos tu componente HeatMap */}
+                <HeatMap data={heatData} center={mapCenter} />
             </div>
         </div>
     );
 }
-
 export default App;

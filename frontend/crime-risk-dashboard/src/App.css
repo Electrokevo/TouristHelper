@@ -36,3 +36,130 @@
     transform: rotate(360deg);
   }
 }
+/* App.css */
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden; /* Evita scroll en la página entera */
+}
+
+.app-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* --- SIDEBAR (Izquierda) --- */
+.sidebar {
+  width: 350px;
+  background-color: #ffffff;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000; /* Para estar sobre el mapa */
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.sidebar-header h1 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.control-panel h3 {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.error-msg {
+  color: #e74c3c;
+  background: #fadbd8;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.loading-msg {
+  color: #3498db;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* --- RESULT CARD --- */
+.result-card {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  animation: fadeIn 0.5s;
+  border-left: 6px solid #ccc;
+  background: #f8f9fa;
+}
+
+.result-card h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.badge-container {
+  margin: 10px 0;
+}
+
+.risk-badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.prediction-msg {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #333;
+}
+
+.meta-info {
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #e9ecef;
+  color: #7f8c8d;
+}
+
+/* Colores Dinámicos */
+.risk-high {
+  border-color: #e74c3c;
+  background-color: #fdedec;
+}
+.risk-high .risk-badge {
+  background-color: #e74c3c;
+}
+
+.risk-low {
+  border-color: #27ae60;
+  background-color: #eafaf1;
+}
+.risk-low .risk-badge {
+  background-color: #27ae60;
+}
+
+/* --- MAP CONTAINER (Derecha) --- */
+.map-container {
+  flex-grow: 1; /* Ocupa el resto del espacio */
+  position: relative;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

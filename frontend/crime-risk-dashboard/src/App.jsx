@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import HeatMapView from "./components/HeatMap";
+import HeatMapView from "./HeatMap";
 
 function App() {
   const [data, setData] = useState([]);
