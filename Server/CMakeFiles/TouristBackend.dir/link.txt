@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/TouristBackend.dir/link.d CMakeFiles/TouristBackend.dir/server.cpp.o CMakeFiles/TouristBackend.dir/Encoders.cpp.o CMakeFiles/TouristBackend.dir/Helpers.cpp.o -o TouristBackend  -lgomp -lpthread -larmadillo /usr/lib/libarmadillo.so -lpthread -larmadillo /usr/lib/libarmadillo.so /usr/lib/libgomp.so /usr/lib/libpthread.a

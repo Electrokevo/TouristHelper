@@ -63,11 +63,11 @@ CMAKE_BINARY_DIR = /home/kevin/Documents/projects/cpp/TouristHelper/Server
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/TouristBackend.dir/all
+all: CMakeFiles/Server.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen: CMakeFiles/TouristBackend.dir/codegen
+codegen: CMakeFiles/Server.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -75,40 +75,40 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/TouristBackend.dir/clean
+clean: CMakeFiles/Server.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/TouristBackend.dir
+# Target rules for target CMakeFiles/Server.dir
 
 # All Build rule for target.
-CMakeFiles/TouristBackend.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TouristBackend.dir/build.make CMakeFiles/TouristBackend.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TouristBackend.dir/build.make CMakeFiles/TouristBackend.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/kevin/Documents/projects/cpp/TouristHelper/Server/CMakeFiles --progress-num=1,2,3,4 "Built target TouristBackend"
-.PHONY : CMakeFiles/TouristBackend.dir/all
+CMakeFiles/Server.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/kevin/Documents/projects/cpp/TouristHelper/Server/CMakeFiles --progress-num=1,2 "Built target Server"
+.PHONY : CMakeFiles/Server.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/TouristBackend.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevin/Documents/projects/cpp/TouristHelper/Server/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/TouristBackend.dir/all
+CMakeFiles/Server.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevin/Documents/projects/cpp/TouristHelper/Server/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kevin/Documents/projects/cpp/TouristHelper/Server/CMakeFiles 0
-.PHONY : CMakeFiles/TouristBackend.dir/rule
+.PHONY : CMakeFiles/Server.dir/rule
 
 # Convenience name for target.
-TouristBackend: CMakeFiles/TouristBackend.dir/rule
-.PHONY : TouristBackend
+Server: CMakeFiles/Server.dir/rule
+.PHONY : Server
 
 # codegen rule for target.
-CMakeFiles/TouristBackend.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TouristBackend.dir/build.make CMakeFiles/TouristBackend.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/kevin/Documents/projects/cpp/TouristHelper/Server/CMakeFiles --progress-num=1,2,3,4 "Finished codegen for target TouristBackend"
-.PHONY : CMakeFiles/TouristBackend.dir/codegen
+CMakeFiles/Server.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/kevin/Documents/projects/cpp/TouristHelper/Server/CMakeFiles --progress-num=1,2 "Finished codegen for target Server"
+.PHONY : CMakeFiles/Server.dir/codegen
 
 # clean rule for target.
-CMakeFiles/TouristBackend.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TouristBackend.dir/build.make CMakeFiles/TouristBackend.dir/clean
-.PHONY : CMakeFiles/TouristBackend.dir/clean
+CMakeFiles/Server.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/clean
+.PHONY : CMakeFiles/Server.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

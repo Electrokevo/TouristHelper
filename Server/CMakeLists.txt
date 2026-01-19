@@ -1,25 +1,21 @@
 cmake_minimum_required(VERSION 3.16)
-project(TouristBackend LANGUAGES CXX)
+project(ServerLookup LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# MLPack y Armadillo
-find_package(PkgConfig REQUIRED)
-pkg_check_modules(MLPACK REQUIRED mlpack)
-find_package(Armadillo REQUIRED)
-find_package(OpenMP)
+# 1. OPENCV
+find_package(OpenCV REQUIRED)
 
-# Añadir ejecutable
-add_executable(TouristBackend server.cpp Encoders.cpp Helpers.cpp)
+# 2. THREADS (Para httplib)
+find_package(Threads REQUIRED)
 
-# Includes e implementación de librerías header-only
-target_include_directories(TouristBackend PRIVATE ${CMAKE_SOURCE_DIR}) 
+# 3. EJECUTABLE
+add_executable(Server server_lookup.cpp)
 
-# Linkeo
-target_link_libraries(TouristBackend
-    ${MLPACK_LIBRARIES}
-    ${ARMADILLO_LIBRARIES}
-    OpenMP::OpenMP_CXX
-    # pthread es necesario para httplib en Linux
-    pthread 
+# 4. LINKING
+target_link_libraries(Server
+    PRIVATE
+    ${OpenCV_LIBS}
+    Threads::Threads
 )

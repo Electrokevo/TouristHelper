@@ -117,89 +117,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named TouristBackend
+# Target rules for targets named Server
 
 # Build rule for target.
-TouristBackend: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TouristBackend
-.PHONY : TouristBackend
+Server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Server
+.PHONY : Server
 
 # fast build rule for target.
-TouristBackend/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TouristBackend.dir/build.make CMakeFiles/TouristBackend.dir/build
-.PHONY : TouristBackend/fast
+Server/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/build
+.PHONY : Server/fast
 
-Encoders.o: Encoders.cpp.o
-.PHONY : Encoders.o
-
-# target to build an object file
-Encoders.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TouristBackend.dir/build.make CMakeFiles/TouristBackend.dir/Encoders.cpp.o
-.PHONY : Encoders.cpp.o
-
-Encoders.i: Encoders.cpp.i
-.PHONY : Encoders.i
-
-# target to preprocess a source file
-Encoders.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TouristBackend.dir/build.make CMakeFiles/TouristBackend.dir/Encoders.cpp.i
-.PHONY : Encoders.cpp.i
-
-Encoders.s: Encoders.cpp.s
-.PHONY : Encoders.s
-
-# target to generate assembly for a file
-Encoders.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TouristBackend.dir/build.make CMakeFiles/TouristBackend.dir/Encoders.cpp.s
-.PHONY : Encoders.cpp.s
-
-Helpers.o: Helpers.cpp.o
-.PHONY : Helpers.o
+server_lookup.o: server_lookup.cpp.o
+.PHONY : server_lookup.o
 
 # target to build an object file
-Helpers.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TouristBackend.dir/build.make CMakeFiles/TouristBackend.dir/Helpers.cpp.o
-.PHONY : Helpers.cpp.o
+server_lookup.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/server_lookup.cpp.o
+.PHONY : server_lookup.cpp.o
 
-Helpers.i: Helpers.cpp.i
-.PHONY : Helpers.i
-
-# target to preprocess a source file
-Helpers.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TouristBackend.dir/build.make CMakeFiles/TouristBackend.dir/Helpers.cpp.i
-.PHONY : Helpers.cpp.i
-
-Helpers.s: Helpers.cpp.s
-.PHONY : Helpers.s
-
-# target to generate assembly for a file
-Helpers.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TouristBackend.dir/build.make CMakeFiles/TouristBackend.dir/Helpers.cpp.s
-.PHONY : Helpers.cpp.s
-
-server.o: server.cpp.o
-.PHONY : server.o
-
-# target to build an object file
-server.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TouristBackend.dir/build.make CMakeFiles/TouristBackend.dir/server.cpp.o
-.PHONY : server.cpp.o
-
-server.i: server.cpp.i
-.PHONY : server.i
+server_lookup.i: server_lookup.cpp.i
+.PHONY : server_lookup.i
 
 # target to preprocess a source file
-server.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TouristBackend.dir/build.make CMakeFiles/TouristBackend.dir/server.cpp.i
-.PHONY : server.cpp.i
+server_lookup.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/server_lookup.cpp.i
+.PHONY : server_lookup.cpp.i
 
-server.s: server.cpp.s
-.PHONY : server.s
+server_lookup.s: server_lookup.cpp.s
+.PHONY : server_lookup.s
 
 # target to generate assembly for a file
-server.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TouristBackend.dir/build.make CMakeFiles/TouristBackend.dir/server.cpp.s
-.PHONY : server.cpp.s
+server_lookup.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/server_lookup.cpp.s
+.PHONY : server_lookup.cpp.s
 
 # Help Target
 help:
@@ -209,16 +161,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... TouristBackend"
-	@echo "... Encoders.o"
-	@echo "... Encoders.i"
-	@echo "... Encoders.s"
-	@echo "... Helpers.o"
-	@echo "... Helpers.i"
-	@echo "... Helpers.s"
-	@echo "... server.o"
-	@echo "... server.i"
-	@echo "... server.s"
+	@echo "... Server"
+	@echo "... server_lookup.o"
+	@echo "... server_lookup.i"
+	@echo "... server_lookup.s"
 .PHONY : help
 
 
